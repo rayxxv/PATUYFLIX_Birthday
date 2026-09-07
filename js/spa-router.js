@@ -327,6 +327,15 @@
                     document.body.className = 'netflix-theme';
                 }
 
+                // Transfer page-specific modals (e.g. lightbox-modal in galeri.html)
+                const docModals = doc.querySelectorAll('.modal-backdrop, #lightbox-modal');
+                const existingLightbox = document.getElementById('lightbox-modal');
+                if (existingLightbox) existingLightbox.remove();
+
+                docModals.forEach(m => {
+                    document.body.appendChild(m.cloneNode(true));
+                });
+
                 reinitPage(pageName);
 
                 if (push) {
