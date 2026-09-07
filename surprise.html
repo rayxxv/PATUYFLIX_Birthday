@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PATUYFLIX — Happy Birthday Patuy! 🎉🎈</title>
+    <meta name="description" content="Spesial Animasi Ulang Tahun untuk Patuy (7 September) - Inspired by Faahim Happy Birthday">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Buenard:wght@400;700&family=Figtree:wght@400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&family=Work+Sans:wght@300;400;600;700&family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="faahim-body faahim-white-theme">
+    <!-- Netflix Cinematic Video Player Backdrop (Dynamic Crossfading Background Photos) -->
+    <div class="netflix-player-bg-backdrop" id="netflix-player-backdrop">
+        <div class="netflix-player-bg-img" id="player-bg-1" style="background-image: url('assets/images/hero-banner.jpg');"></div>
+        <div class="netflix-player-bg-img" id="player-bg-2" style="background-image: url('assets/images/20250329_174913.jpg'); opacity: 0;"></div>
+        <div class="netflix-player-bg-overlay"></div>
+    </div>
+    <!-- Netflix Video Player Top HUD Header (Active during Video Player scenes) -->
+    <div class="netflix-player-top-hud" id="netflix-player-top-hud">
+        <div class="hud-left">
+            <a href="index.html" class="hud-back-btn" title="Kembali ke Beranda">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+            </a>
+            <div class="hud-title-wrap">
+                <span class="hud-series-tag">🍿 PATUYFLIX ORIGINAL SPECIAL</span>
+                <h3 class="hud-episode-title">PATUY: SEASON 28 • EPISODE 1 "HARI PALING BERMAKNA"</h3>
+            </div>
+            <span class="hud-badge-quality">4K HDR</span>
+        </div>
+        <div class="hud-right">
+            <div class="hud-live-pill">
+                <span class="hud-live-dot"></span>
+                <span>SPECIAL PREMIERE</span>
+            </div>
+            <span class="hud-audio-pill">🔊 DOLBY 5.1</span>
+        </div>
+    </div>
+
+
+    <!-- Netflix Video Player Bottom HUD Controls -->
+    <div class="netflix-player-bottom-hud" id="netflix-player-bottom-hud">
+        <!-- Scrubber Timeline -->
+        <div class="netflix-hud-scrubber-wrap">
+            <div class="netflix-hud-scrubber-track">
+                <div class="netflix-hud-scrubber-fill" id="netflix-hud-progress" style="width: 15%;"></div>
+                <div class="netflix-hud-scrubber-handle"></div>
+            </div>
+        </div>
+
+        <!-- Controls Row -->
+        <div class="netflix-hud-controls-row">
+            <div class="hud-controls-left">
+                <button type="button" class="hud-btn hud-play-btn" id="hud-play-toggle" title="Play/Pause">
+                    <span>⏸</span>
+                </button>
+                <button type="button" class="hud-btn" title="10 Detik Mundur">
+                    <span>↺ 10</span>
+                </button>
+                <button type="button" class="hud-btn" title="10 Detik Maju">
+                    <span>10 ↻</span>
+                </button>
+                <div class="hud-time-display">
+                    <span id="hud-current-time">01:28</span>
+                    <span class="hud-time-divider">/</span>
+                    <span id="hud-total-time">07:09</span>
+                </div>
+            </div>
+
+            <div class="hud-controls-right">
+                <span class="hud-btn-tag">💬 INDONESIAN [CC]</span>
+                <span class="hud-btn-tag">🎵 ∞ Uma Musume Piano</span>
+                <button type="button" class="hud-btn" title="Layar Penuh" id="hud-fullscreen-btn">
+                    <span>⛶</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ayu Sharma / eWishWell Style Step 1: Interactive Play Music Intro Stage (Netflix Premiere Card) -->
+    <div id="play-music-stage" class="play-music-stage">
+        <!-- Ambient Neon Glow Behind Card -->
+        <div class="netflix-card-ambient-glow"></div>
+
+        <div class="music-intro-card netflix-premiere-card text-center">
+            <!-- Top Netflix Original Live Badge -->
+            <div class="netflix-live-badge">
+                <span class="live-dot"></span>
+                <span class="live-text">A PATUYFLIX ORIGINAL SPECIAL PREMIERE</span>
+            </div>
+
+            <!-- Netflix Monogram / Cinema Emblem -->
+            <div class="netflix-emblem-wrap">
+                <div class="netflix-n-badge">P</div>
+                <div class="netflix-sparkles-icon">✨ 🎬 ✨</div>
+            </div>
+
+            <!-- Title -->
+            <h1 class="netflix-card-title">
+                PATUY <span class="title-highlight">28TH</span> BIRTHDAY
+            </h1>
+            <div class="netflix-card-tagline">Special Anniversary & Birthday Interactive Movie</div>
+
+            <!-- Netflix Metadata Pills Bar -->
+            <div class="netflix-meta-bar">
+                <span class="meta-pill meta-match">100% Cocok Untukmu 💕</span>
+                <span class="meta-pill meta-year">2026</span>
+                <span class="meta-pill meta-age">28+ SPECIAL</span>
+                <span class="meta-pill meta-quality">4K UHD</span>
+                <span class="meta-pill meta-audio">DOLBY 5.1</span>
+            </div>
+
+            <!-- Intriguing Teaser Synopsis Box -->
+            <div class="netflix-synopsis-box">
+                <p class="netflix-synopsis-text">
+                    Sebuah persembahan sinematik interaktif yang dirancang khusus hanya untukmu. Setiap detik menyimpan kejutan tak terduga yang telah dipersiapkan untuk merayakan hari paling bermakna dalam hidupmu.
+                </p>
+                <div class="netflix-secret-hint">
+                    <span>🔒</span> <em>Siapkan hatimu dan nyalakan musik untuk membuka pintu kejutan...</em>
+                </div>
+            </div>
+
+            <!-- Netflix Red CTA Play Button -->
+            <button id="start-surprise-btn" class="netflix-play-btn play-music-btn">
+                <span class="btn-play-icon">▶</span>
+                <span class="btn-play-text">Putar Musik & Mulai Premiere</span>
+                <span class="btn-play-popcorn">🍿</span>
+            </button>
+
+            <!-- Headphone Recommendation Footer -->
+            <div class="netflix-audio-hint">
+                <span>🎧</span> Disarankan menggunakan earphone/speaker untuk pengalaman terbaik
+            </div>
+        </div>
+    </div>
+
+    <!-- Netflix VIP Security / Secret 4-Digit Passcode Lock Stage -->
+    <div id="passcode-stage" class="passcode-stage" style="display: none;">
+        <div class="netflix-card-ambient-glow"></div>
+
+        <div class="music-intro-card netflix-passcode-card text-center">
+            <!-- Animated Lock Icon -->
+            <div class="passcode-lock-icon-wrap">
+                <span class="passcode-lock-icon" id="passcode-lock-icon">🔒</span>
+            </div>
+
+            <!-- Title & Subtitle -->
+            <h2 class="passcode-title">Akses Rahasia VIP <span class="passcode-name-wrap">Patuy 💕</span></h2>
+            <p class="passcode-sub">
+                Masukkan <strong>4 digit PIN rahasia</strong> untuk membuka tirai kejutan premiere spesialmu:
+            </p>
+
+            <!-- 4 PIN Input Boxes -->
+            <div class="passcode-pin-row" id="passcode-pin-row">
+                <input type="password" maxlength="1" class="pin-box" id="pin-1" inputmode="numeric" autocomplete="off" autofocus>
+                <input type="password" maxlength="1" class="pin-box" id="pin-2" inputmode="numeric" autocomplete="off">
+                <input type="password" maxlength="1" class="pin-box" id="pin-3" inputmode="numeric" autocomplete="off">
+                <input type="password" maxlength="1" class="pin-box" id="pin-4" inputmode="numeric" autocomplete="off">
+            </div>
+
+            <!-- Error / Success Status Feedback -->
+            <div id="passcode-feedback" class="passcode-feedback"></div>
+
+            <!-- Clue / Hint Box -->
+            <div class="passcode-hint-box">
+                <button type="button" class="passcode-hint-trigger" id="passcode-hint-btn">
+                    <span>💡</span> <u>Butuh petunjuk PIN?</u>
+                </button>
+                <div class="passcode-hint-content" id="passcode-hint-text" style="display: none;">
+                    🎁 <em>Petunjuk: Tanggal & bulan hari kelahiranmu (DDMM) ➔ <strong>0709</strong></em>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button id="submit-passcode-btn" class="netflix-play-btn play-music-btn" style="margin-top: 18px;">
+                <span class="btn-play-icon">🔓</span>
+                <span class="btn-play-text">Buka Kunci & Mulai Tayangan</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- eWishWell & Faahim Happy Birthday Interactive Container -->
+    <main class="faahim-main-wrapper">
+        <div class="container faahim-stage-container">
+            <!-- Step 1: Greeting (Direct Cinema Title Scene 01) -->
+            <div class="one cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 01 • PROLOGUE
+                </div>
+                <h1 class="one-title">
+                    <span class="greet-lead" data-node-name="greeting">Heyy</span>
+                    <span class="greet-name" data-node-name="name">Patuy 💕</span>
+                </h1>
+                <p class="two cinema-subtitle" data-node-name="greetingText">
+                    <span class="sub-sparkle">✨</span> Kamu hari ini terpilih jadi birthday girl! 👑
+                </p>
+            </div>
+
+            <!-- Step 2: Birthday Text (Direct Cinema Title Scene 02) -->
+            <div class="three cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 02 • THE 28TH CELEBRATION
+                </div>
+                <h2 class="three-title">
+                    <span class="three-text" data-node-name="text1">Hari ini adalah hari ulang tahunmu yang <span class="three-age-highlight">ke-28!</span> Yeaayyyyy</span>
+                    <span class="three-emoji">🎉🎂✨</span>
+                </h2>
+            </div>
+
+            <!-- Step 3: Typewriter WhatsApp Desktop / PC Chat App Mockup (Scene 03) -->
+            <div class="four cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 03 • INCOMING TRANSMISSION
+                </div>
+                <div class="pc-chat-app-mockup">
+                    <!-- Top Window Titlebar (macOS / Modern PC Glass style) -->
+                    <div class="pc-window-titlebar">
+                        <div class="pc-window-controls">
+                            <span class="pc-ctrl pc-ctrl-close"></span>
+                            <span class="pc-ctrl pc-ctrl-min"></span>
+                            <span class="pc-ctrl pc-ctrl-max"></span>
+                        </div>
+                        <div class="pc-window-title">
+                            <span class="pc-app-icon">💬</span> WhatsApp Web Desktop • Patuy 💕
+                        </div>
+                        <div class="pc-window-actions">
+                            <span class="pc-badge-secure">🔒 End-to-End Encrypted</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Window Body (Sidebar + Chat Area) -->
+                    <div class="pc-window-body">
+                        <!-- Left Sidebar (Recent Chats) -->
+                        <div class="pc-chat-sidebar">
+                            <div class="pc-sidebar-header">
+                                <div class="pc-search-box">
+                                    <span>🔍</span> Cari atau mulai chat
+                                </div>
+                            </div>
+                            <div class="pc-chat-list">
+                                <!-- Active Chat (Patuy) -->
+                                <div class="pc-chat-item active">
+                                    <div class="pc-item-avatar">
+                                        <img src="assets/images/20241228_122939-1.jpg" alt="Patuy">
+                                        <span class="pc-online-dot"></span>
+                                    </div>
+                                    <div class="pc-item-info">
+                                        <div class="pc-item-top">
+                                            <span class="pc-item-name">Patuy ❤️</span>
+                                            <span class="pc-item-time">12:00</span>
+                                        </div>
+                                        <div class="pc-item-snippet">mengetik pesan...</div>
+                                    </div>
+                                </div>
+                                <!-- Inactive Chats -->
+                                <div class="pc-chat-item">
+                                    <div class="pc-item-avatar">
+                                        <div class="pc-avatar-placeholder">🎂</div>
+                                    </div>
+                                    <div class="pc-item-info">
+                                        <div class="pc-item-top">
+                                            <span class="pc-item-name">Birthday Bot</span>
+                                            <span class="pc-item-time">Kemarin</span>
+                                        </div>
+                                        <div class="pc-item-snippet">Selamat ulang tahun ke-28! 🎉</div>
+                                    </div>
+                                </div>
+                                <div class="pc-chat-item">
+                                    <div class="pc-item-avatar">
+                                        <div class="pc-avatar-placeholder netflix-red-bg">🍿</div>
+                                    </div>
+                                    <div class="pc-item-info">
+                                        <div class="pc-item-top">
+                                            <span class="pc-item-name">PATUYFLIX Premiere</span>
+                                            <span class="pc-item-time">07/09</span>
+                                        </div>
+                                        <div class="pc-item-snippet">Episode 1 sedang tayang... 🎬</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Main Chat Pane -->
+                        <div class="pc-chat-main">
+                            <!-- Chat Pane Header -->
+                            <div class="pc-main-header">
+                                <div class="pc-header-user">
+                                    <div class="pc-header-avatar">
+                                        <img src="assets/images/20241228_122939-1.jpg" alt="Patuy" class="wa-avatar-img">
+                                        <span class="pc-online-dot"></span>
+                                    </div>
+                                    <div class="pc-header-details">
+                                        <div class="pc-header-name">Patuy <span class="wa-heart">❤️</span></div>
+                                        <div class="pc-header-status">online • siap menerima ucapan terindah ✨</div>
+                                    </div>
+                                </div>
+                                <div class="pc-header-icons">
+                                    <span title="Panggilan Suara">📞</span>
+                                    <span title="Panggilan Video">📹</span>
+                                    <span title="Cari Chat">🔍</span>
+                                    <span title="Opsi Lainnya">⋮</span>
+                                </div>
+                            </div>
+
+                            <!-- Chat Wallpaper Area -->
+                            <div class="wa-chat-body">
+                                <div class="pc-chat-encrypted-badge">
+                                    🔒 Pesan dan panggilan terenkripsi secara end-to-end. Dibuat spesial untuk Patuy 💕
+                                </div>
+                                
+                                <!-- WhatsApp Sent Chat Message Bubble -->
+                                <div class="wa-chat-bubble">
+                                    <div class="wa-bubble-content">
+                                        <p class="wa-bubble-text" data-node-name="textInChatBox">HALOOO PATARRR, SELAMAT ULANGGG TAHUN YAAAA BIRTHDAYYY GIRLLL RAWRRRRR, SEMOGA TAHUN INI BISA LEBIH BAIK DARI TAHUN SEBELUMNYA</p>
+                                        <div class="wa-bubble-meta">
+                                            <span class="wa-time">12:00</span>
+                                            <span class="wa-checks">
+                                                <svg viewBox="0 0 16 15" width="16" height="15" fill="#53bdeb">
+                                                    <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.361.125.484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="wa-bubble-tail"></div>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp PC Bottom Input Bar -->
+                            <div class="pc-input-dock">
+                                <div class="pc-dock-tools">
+                                    <span class="pc-tool-btn" title="Emoji">😊</span>
+                                    <span class="pc-tool-btn" title="Lampiran">📎</span>
+                                </div>
+                                <div class="wa-input-pill">
+                                    <p class="hbd-chatbox" data-node-name="textInChatBox">HALOOO PATARRR, SELAMAT ULANGGG TAHUN YAAAA BIRTHDAYYY GIRLLL RAWRRRRR, SEMOGA TAHUN INI BISA LEBIH BAIK DARI TAHUN SEBELUMNYA</p>
+                                    <span class="wa-cursor">|</span>
+                                </div>
+                                <div class="wa-send-btn fake-btn" data-node-name="sendButtonLabel" title="Kirim Pesan">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Scene 04 -->
+            <div class="scene-04 cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 04 • THE ORIGINAL PLAN
+                </div>
+                <h2 class="scene-title" data-node-name="text2">
+                    <span class="title-white">Tadinya sih mau ngirim itu ya</span>
+                    <span class="title-ruby">cuma kok normies</span>
+                    <span class="title-emoji">💬</span>
+                </h2>
+                <p class="cinema-subtitle">
+                    <span class="sub-sparkle">📱</span> Sebuah pesan chat WhatsApp biasa <span class="sub-sparkle">💭</span>
+                </p>
+            </div>
+
+            <!-- Step 5: Scene 05 -->
+            <div class="scene-05 cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 05 • THE TURNING POINT
+                </div>
+                <h2 class="scene-title" data-node-name="text3">
+                    <span class="title-white">Tapi kan aku baru inget</span>
+                    <span class="title-gold">aku S.Kom hhmmm</span>
+                    <span class="title-emoji">✨</span>
+                </h2>
+                <p class="cinema-subtitle">
+                    <span class="sub-sparkle">✨</span> Jadi mau kubuatin sesuatu yang spesial buat hari spesial Patar. <span class="sub-sparkle">💕</span>
+                </p>
+            </div>
+
+            <!-- Step 6: Scene 06 -->
+            <div class="scene-06 cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 06 • A REALIZATION
+                </div>
+                <h2 class="scene-title">
+                    <span class="title-white" data-node-name="text4">Kubuatin</span>
+                    <span class="title-ruby" data-node-name="text4Adjective">Netflix</span>
+                    <span class="title-white">khusus deh buat Patar yeyyy</span>
+                    <span class="title-emoji">🎁</span>
+                </h2>
+                <p class="cinema-subtitle">
+                    <span class="sub-sparkle">💖</span> Ditonton persembahan film pendek ini <span class="sub-sparkle">🍿</span>
+                </p>
+            </div>
+
+            <!-- Step 7: Scene 07 -->
+            <div class="scene-07 cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 07 • FROM THE HEART
+                </div>
+                <h2 class="scene-title">
+                    <span class="title-white">Karena ini</span>
+                    <span class="title-ruby" data-node-name="text5Content">spesial</span>
+                    <span class="title-white">buat Patar semoga suka</span>
+                    <span class="title-gold title-smiley" data-node-name="smiley">:)</span>
+                </h2>
+                <p class="cinema-subtitle">
+                    <span class="sub-sparkle">🌹</span> Hadiah spesial buat orang yang spesial ehe <span class="sub-sparkle">💖</span>
+                </p>
+            </div>
+
+            <!-- Step 8: Scene 08 (Giant SO) -->
+            <div class="scene-08 cinema-title-scene">
+                <div class="cinema-kicker">
+                    <span class="kicker-dot"></span> SCENE 08 • AND SO...
+                </div>
+                <h2 class="scene-title scene-so-heading">
+                    <span class="title-ruby title-so" data-node-name="bigTextPart1">S O</span>
+                    <span class="title-gold title-so-dots" data-node-name="bigTextPart2">. . .</span>
+                    <span class="title-emoji">🎬</span>
+                </h2>
+                <p class="cinema-subtitle">
+                    <span class="sub-sparkle">🎉</span> Patar siap-siap yaaa <span class="sub-sparkle">✨</span>
+                </p>
+            </div>
+
+            <!-- Ayush Sharma Interactive Birthday Experience Stage -->
+            <div id="ayush-stage" class="ayush-stage">
+                <!-- 1. Hanging Light Bulb / Room Lighting -->
+                <div class="ayush-bulb-container">
+                    <div class="ayush-bulb-cord"></div>
+                    <div class="ayush-bulb-socket"></div>
+                    <div class="ayush-bulb-glass">
+                        <div class="ayush-bulb-filament"></div>
+                    </div>
+                    <div class="ayush-bulb-glow"></div>
+                </div>
+
+                <!-- 2. Grand Festive Party Decoration Suite -->
+                <div class="ayush-banner-container" id="ayush-decorations">
+                    <!-- Top Fairy Lights Garland -->
+                    <div class="party-fairy-lights">
+                        <span class="fairy-bulb fb-pink"></span>
+                        <span class="fairy-bulb fb-gold"></span>
+                        <span class="fairy-bulb fb-blue"></span>
+                        <span class="fairy-bulb fb-green"></span>
+                        <span class="fairy-bulb fb-purple"></span>
+                        <span class="fairy-bulb fb-pink"></span>
+                        <span class="fairy-bulb fb-gold"></span>
+                        <span class="fairy-bulb fb-blue"></span>
+                        <span class="fairy-bulb fb-green"></span>
+                        <span class="fairy-bulb fb-purple"></span>
+                        <span class="fairy-bulb fb-pink"></span>
+                        <span class="fairy-bulb fb-gold"></span>
+                        <span class="fairy-bulb fb-blue"></span>
+                        <span class="fairy-bulb fb-pink"></span>
+                    </div>
+
+                    <!-- Main Pennant Banner -->
+                    <div class="ayush-bunting-row">
+                        <span class="pennant pennant-red">H</span>
+                        <span class="pennant pennant-yellow">A</span>
+                        <span class="pennant pennant-blue">P</span>
+                        <span class="pennant pennant-green">P</span>
+                        <span class="pennant pennant-pink">Y</span>
+                        <span class="pennant-space"></span>
+                        <span class="pennant pennant-purple">B</span>
+                        <span class="pennant pennant-orange">I</span>
+                        <span class="pennant pennant-teal">R</span>
+                        <span class="pennant pennant-yellow">T</span>
+                        <span class="pennant pennant-red">H</span>
+                        <span class="pennant pennant-blue">D</span>
+                        <span class="pennant pennant-green">A</span>
+                        <span class="pennant pennant-pink">Y</span>
+                    </div>
+
+                    <!-- Sub Star & Heart Garland -->
+                    <div class="party-star-garland">
+                        <span>⭐</span><span>💖</span><span>🎊</span><span>✨</span><span>🌟</span><span>🌸</span><span>💖</span><span>🎉</span><span>⭐</span><span>✨</span><span>💖</span><span>🌟</span><span>⭐</span>
+                    </div>
+
+                    <!-- Left & Right Hanging Swirl Streamers -->
+                    <div class="party-streamers-left">
+                        <div class="streamer-ribbon s-pink"></div>
+                        <div class="streamer-ribbon s-gold"></div>
+                        <div class="streamer-ribbon s-blue"></div>
+                    </div>
+                    <div class="party-streamers-right">
+                        <div class="streamer-ribbon s-purple"></div>
+                        <div class="streamer-ribbon s-green"></div>
+                        <div class="streamer-ribbon s-rose"></div>
+                    </div>
+
+                    <!-- Left Standing Party Balloon Bouquet + Pompompurin -->
+                    <div class="party-side-cluster cluster-left">
+                        <div class="mascot-speech-bubble bubble-left">HBD Patar! 🍮🎉</div>
+                        <div class="foil-balloon foil-star">
+                            <span class="foil-star-icon">⭐</span>
+                            <span class="foil-num">28</span>
+                        </div>
+                        <div class="balloon-bunch">
+                            <div class="bunch-balloon bb-pink"></div>
+                            <div class="bunch-balloon bb-purple"></div>
+                            <div class="bunch-balloon bb-gold"></div>
+                            <div class="bunch-balloon bb-teal"></div>
+                            <div class="bunch-balloon bb-orange"></div>
+                        </div>
+                        <div class="bunch-ribbon-lines">
+                            <i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                        <div class="party-mascot mascot-left" title="Pompompurin merayakan ulang tahun Patuy!">
+                            <img src="assets/images/sanrio/pompompurin.svg" alt="Pompompurin" class="mascot-img">
+                            <span class="mascot-party-hat">🎉</span>
+                        </div>
+                        <div class="party-gift-box gift-left">
+                            <div class="gift-box-body"></div>
+                            <div class="gift-box-lid"></div>
+                            <span class="gift-ribbon-bow">🎁</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Standing Party Balloon Bouquet + Pokemon Mimikyu -->
+                    <div class="party-side-cluster cluster-right">
+                        <div class="mascot-speech-bubble bubble-right">Rawrr! ⚡👻💖</div>
+                        <div class="foil-balloon foil-heart">
+                            <span class="foil-heart-icon">💖</span>
+                            <span class="foil-text">PATAR</span>
+                        </div>
+                        <div class="balloon-bunch">
+                            <div class="bunch-balloon bb-blue"></div>
+                            <div class="bunch-balloon bb-rose"></div>
+                            <div class="bunch-balloon bb-green"></div>
+                            <div class="bunch-balloon bb-yellow"></div>
+                            <div class="bunch-balloon bb-purple2"></div>
+                        </div>
+                        <div class="bunch-ribbon-lines">
+                            <i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                        <div class="party-mascot mascot-right" title="Mimikyu merayakan ulang tahun Patuy!">
+                            <img src="assets/images/sanrio/mimikyu.svg" alt="Mimikyu" class="mascot-img">
+                            <span class="mascot-party-hat">👑</span>
+                        </div>
+                        <div class="party-gift-box gift-right">
+                            <div class="gift-box-body"></div>
+                            <div class="gift-box-lid"></div>
+                            <span class="gift-ribbon-bow">🎀</span>
+                        </div>
+                    </div>
+
+                    <!-- Complete Sanrio & Pokemon Friends Party Parade (Celebrating Patar's 28th Birthday!) -->
+                    <div class="sanrio-party-parade">
+                        <!-- Left Squad -->
+                        <div class="sanrio-group sanrio-left-group">
+                            <div class="sanrio-char-card sc-purin" title="Pompompurin: Selamat ulang tahun Patar!">
+                                <img src="assets/images/sanrio/pompompurin.svg" alt="Pompompurin" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">🎉</span>
+                                <span class="sanrio-name-tag">Purin 🍮</span>
+                            </div>
+                            <div class="sanrio-char-card sc-cinna" title="Cinnamoroll: HBD Patar tersayang!">
+                                <img src="assets/images/sanrio/cinnamoroll.svg" alt="Cinnamoroll" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">🎂</span>
+                                <span class="sanrio-name-tag">Cinna ☁️</span>
+                            </div>
+                            <div class="sanrio-char-card sc-kitty" title="Hello Kitty: Happy 28th Birthday!">
+                                <img src="assets/images/sanrio/hellokitty.svg" alt="Hello Kitty" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">🎀</span>
+                                <span class="sanrio-name-tag">Kitty 🎈</span>
+                            </div>
+                            <div class="sanrio-char-card sc-melody" title="My Melody: Semoga bahagia selalu!">
+                                <img src="assets/images/sanrio/mymelody.svg" alt="My Melody" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">🌸</span>
+                                <span class="sanrio-name-tag">Melody 💕</span>
+                            </div>
+                            <div class="sanrio-char-card sc-keroppi" title="Keroppi: Yaaay selamat ulang tahun!">
+                                <img src="assets/images/sanrio/keroppi.svg" alt="Keroppi" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">🎊</span>
+                                <span class="sanrio-name-tag">Keroppi 🐸</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Squad -->
+                        <div class="sanrio-group sanrio-right-group">
+                            <div class="sanrio-char-card sc-pochacco" title="Pochacco: HBD Patar keren!">
+                                <img src="assets/images/sanrio/pochacco.svg" alt="Pochacco" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">🥳</span>
+                                <span class="sanrio-name-tag">Pochacco 🐶</span>
+                            </div>
+                            <div class="sanrio-char-card sc-kuromi" title="Kuromi: Party rock for Patar!">
+                                <img src="assets/images/sanrio/kuromi.svg" alt="Kuromi" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">👑</span>
+                                <span class="sanrio-name-tag">Kuromi 💜</span>
+                            </div>
+                            <div class="sanrio-char-card sc-badtz" title="Badtz-Maru: Selamat ultah boss!">
+                                <img src="assets/images/sanrio/badtzmaru.svg" alt="Badtz-Maru" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">🎁</span>
+                                <span class="sanrio-name-tag">Badtz 🐧</span>
+                            </div>
+                            <div class="sanrio-char-card sc-gudetama" title="Gudetama: HBD ya... males gerak tp ttp ikut party">
+                                <img src="assets/images/sanrio/gudetama.svg" alt="Gudetama" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">💤</span>
+                                <span class="sanrio-name-tag">Gude 🍳</span>
+                            </div>
+                            <div class="sanrio-char-card sc-mimikyu" title="Mimikyu: Pika pika HBD Patar!">
+                                <img src="assets/images/sanrio/mimikyu.svg" alt="Mimikyu" class="sanrio-mini-img">
+                                <span class="sanrio-mini-hat">⚡</span>
+                                <span class="sanrio-name-tag">Mimikyu 👻</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Festive Corner Party Poppers -->
+                    <div class="party-popper-badge popper-left">🎉 <span>PARTY!</span></div>
+                    <div class="party-popper-badge popper-right">🎊 <span>YAYYY!</span></div>
+
+                    <!-- Hand-Drawn Style Birthday Doodle Art Suite (Reference Inspired) -->
+                    <div class="party-doodles-layer">
+                        <!-- Top Left Doodles -->
+                        <div class="doodle-wrap dw-cake-1" title="Birthday Cake Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <path d="M 28 8 L 28 16 M 36 8 L 36 16 M 28 8 C 28 5 30 3 30 3 C 30 3 32 5 32 8 Z M 36 8 C 36 5 38 3 38 3 C 38 3 40 5 40 8 Z" stroke="#f59e0b" stroke-width="2.2" fill="#fef08a" stroke-linecap="round"/>
+                                <rect x="18" y="16" width="28" height="14" rx="3" stroke="#e11d48" stroke-width="2.2" fill="#ffe4e6"/>
+                                <path d="M 18 23 Q 25 28 32 23 Q 39 28 46 23" stroke="#e11d48" stroke-width="2" fill="none"/>
+                                <rect x="10" y="30" width="44" height="22" rx="4" stroke="#e11d48" stroke-width="2.2" fill="#fff1f2"/>
+                                <path d="M 10 39 Q 21 45 32 39 Q 43 45 54 39" stroke="#e11d48" stroke-width="2" fill="none"/>
+                                <circle cx="20" cy="46" r="2" fill="#fbbf24"/>
+                                <circle cx="32" cy="46" r="2" fill="#38bdf8"/>
+                                <circle cx="44" cy="46" r="2" fill="#a855f7"/>
+                            </svg>
+                        </div>
+
+                        <div class="doodle-wrap dw-toast" title="Toast Glasses Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <path d="M 14 14 L 27 27 C 27 33 21 37 17 37 L 22 37 L 22 49 L 16 49 M 28 49 L 22 49" stroke="#0284c7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M 50 14 L 37 27 C 37 33 43 37 47 37 L 42 37 L 42 49 L 48 49 M 36 49 L 42 49" stroke="#0284c7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="32" cy="15" r="2" fill="#fbbf24"/>
+                                <circle cx="28" cy="9" r="1.5" fill="#fbbf24"/>
+                                <circle cx="36" cy="9" r="1.5" fill="#fbbf24"/>
+                                <path d="M 32 3 L 32 7 M 29 5 L 35 5" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="doodle-wrap dw-calendar" title="Calendar Doodle: 07 September">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <rect x="13" y="16" width="38" height="40" rx="4" stroke="#4f46e5" stroke-width="2.2" fill="#eef2ff"/>
+                                <rect x="13" y="16" width="38" height="13" rx="4" stroke="#4f46e5" stroke-width="2.2" fill="#6366f1"/>
+                                <line x1="22" y1="9" x2="22" y2="16" stroke="#4f46e5" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="42" y1="9" x2="42" y2="16" stroke="#4f46e5" stroke-width="3" stroke-linecap="round"/>
+                                <text x="32" y="44" font-family="'Figtree', sans-serif" font-size="16" font-weight="900" fill="#312e81" text-anchor="middle">07</text>
+                                <text x="32" y="52" font-family="'Figtree', sans-serif" font-size="7.5" font-weight="800" fill="#e11d48" text-anchor="middle">SEP</text>
+                            </svg>
+                        </div>
+
+                        <!-- Top Right Doodles -->
+                        <div class="doodle-wrap dw-popper" title="Party Popper Confetti Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <path d="M 12 52 L 32 46 L 20 26 Z" stroke="#ea580c" stroke-width="2.2" fill="#ffedd5" stroke-linejoin="round"/>
+                                <path d="M 16 43 Q 23 40 25 48" stroke="#ea580c" stroke-width="1.8" fill="none"/>
+                                <path d="M 28 32 Q 38 22 34 14 Q 44 16 48 8" stroke="#e11d48" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                                <path d="M 34 38 Q 46 34 52 40" stroke="#0284c7" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                                <path d="M 24 22 Q 28 12 36 8" stroke="#16a34a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                                <circle cx="44" cy="22" r="2.2" fill="#fbbf24"/>
+                                <circle cx="50" cy="16" r="1.8" fill="#ec4899"/>
+                                <circle cx="38" cy="28" r="1.8" fill="#9333ea"/>
+                            </svg>
+                        </div>
+
+                        <div class="doodle-wrap dw-balloons" title="Balloon Bunch Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <ellipse cx="25" cy="21" rx="13" ry="16" stroke="#e11d48" stroke-width="2.2" fill="#ffe4e6"/>
+                                <ellipse cx="39" cy="23" rx="12" ry="15" stroke="#9333ea" stroke-width="2.2" fill="#f3e8ff"/>
+                                <path d="M 25 37 Q 27 46 32 50" stroke="#e11d48" stroke-width="1.8" fill="none"/>
+                                <path d="M 39 38 Q 37 46 32 50" stroke="#9333ea" stroke-width="1.8" fill="none"/>
+                                <circle cx="32" cy="50" r="2.5" fill="#f59e0b"/>
+                                <path d="M 28 55 Q 32 50 36 55" stroke="#f59e0b" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+
+                        <div class="doodle-wrap dw-hat" title="Party Hat Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <path d="M 32 10 L 49 49 L 15 49 Z" stroke="#059669" stroke-width="2.2" fill="#ecfdf5"/>
+                                <circle cx="32" cy="8" r="4.5" fill="#fbbf24"/>
+                                <circle cx="27" cy="30" r="2.8" fill="#e11d48"/>
+                                <circle cx="38" cy="36" r="2.2" fill="#0284c7"/>
+                                <circle cx="25" cy="43" r="2.2" fill="#9333ea"/>
+                                <circle cx="36" cy="24" r="1.8" fill="#fbbf24"/>
+                            </svg>
+                        </div>
+
+                        <!-- Center Mid Doodles -->
+                        <div class="doodle-wrap dw-gift" title="Gift Box Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <rect x="13" y="24" width="38" height="32" rx="3" stroke="#9333ea" stroke-width="2.2" fill="#faf5ff"/>
+                                <rect x="10" y="17" width="44" height="9" rx="2" stroke="#9333ea" stroke-width="2.2" fill="#f3e8ff"/>
+                                <line x1="32" y1="17" x2="32" y2="56" stroke="#9333ea" stroke-width="2.2"/>
+                                <path d="M 32 17 C 23 8 18 17 32 17 C 46 17 41 8 32 17" stroke="#e11d48" stroke-width="2.2" fill="#ffe4e6"/>
+                            </svg>
+                        </div>
+
+                        <div class="doodle-wrap dw-rocket" title="Firework Rocket Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <path d="M 32 8 L 44 24 L 20 24 Z" stroke="#e11d48" stroke-width="2.2" fill="#f43f5e"/>
+                                <rect x="20" y="24" width="24" height="24" stroke="#e11d48" stroke-width="2.2" fill="#fff1f2"/>
+                                <line x1="20" y1="32" x2="44" y2="32" stroke="#e11d48" stroke-width="1.8"/>
+                                <line x1="20" y1="40" x2="44" y2="40" stroke="#e11d48" stroke-width="1.8"/>
+                                <line x1="32" y1="48" x2="32" y2="60" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M 29 52 Q 23 57 25 61 M 35 52 Q 41 57 39 61" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="doodle-wrap dw-slice" title="Cake Slice Doodle">
+                            <svg class="doodle-svg" viewBox="0 0 64 64">
+                                <path d="M 12 44 L 52 44 L 46 25 L 12 44 Z" stroke="#db2777" stroke-width="2.2" fill="#fdf2f8"/>
+                                <line x1="12" y1="35" x2="48" y2="35" stroke="#fb7185" stroke-width="2.2"/>
+                                <circle cx="34" cy="20" r="5.5" stroke="#be123c" stroke-width="1.8" fill="#f43f5e"/>
+                                <path d="M 34 15 Q 39 10 45 12" stroke="#15803d" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <!-- Micro Floating Doodles -->
+                        <div class="doodle-sparkle ds-1">⭐</div>
+                        <div class="doodle-sparkle ds-2">💖</div>
+                        <div class="doodle-sparkle ds-3">🎉</div>
+                        <div class="doodle-sparkle ds-4">✨</div>
+                        <div class="doodle-sparkle ds-5">🎈</div>
+                        <div class="doodle-sparkle ds-6">🎵</div>
+                        <div class="doodle-sparkle ds-7">🌸</div>
+                        <div class="doodle-sparkle ds-8">🌟</div>
+                    </div>
+
+                    <!-- Twinkling Room Glitters & Confetti Flakes -->
+                    <div class="party-room-sparkles">
+                        <span class="room-sparkle sp-1">✨</span>
+                        <span class="room-sparkle sp-2">⭐</span>
+                        <span class="room-sparkle sp-3">💖</span>
+                        <span class="room-sparkle sp-4">✨</span>
+                        <span class="room-sparkle sp-5">🌟</span>
+                        <span class="room-sparkle sp-6">🌸</span>
+                        <span class="room-sparkle sp-7">🎉</span>
+                        <span class="room-sparkle sp-8">💫</span>
+                    </div>
+                </div>
+
+                <!-- 3. Natural Organic Ceiling Floating Balloons Suite (12 Dynamic Glossy Balloons) -->
+                <div class="ayush-ceiling-balloons">
+                    <!-- Balloon 1: Ruby Red -->
+                    <div class="natural-balloon nb-1 b-ruby">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 18,22 8,44 T 16,66 Q 10,78 12,90" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 2: Sky Blue -->
+                    <div class="natural-balloon nb-2 b-blue">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 6,24 16,46 T 8,68 Q 14,80 12,90" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 3: Mint Green -->
+                    <div class="natural-balloon nb-3 b-green">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 17,20 7,42 T 15,64 Q 9,76 12,90" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 4: Sunny Gold -->
+                    <div class="natural-balloon nb-4 b-gold">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 7,22 17,44 T 9,66 Q 15,78 12,90" fill="none" stroke="#facc15" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 5: Royal Purple -->
+                    <div class="natural-balloon nb-5 b-purple">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 18,24 8,46 T 16,68 Q 10,80 12,90" fill="none" stroke="#a855f7" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 6: Sunset Orange -->
+                    <div class="natural-balloon nb-6 b-orange">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 6,20 16,42 T 8,64 Q 14,76 12,90" fill="none" stroke="#fb923c" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 7: Rose Pink -->
+                    <div class="natural-balloon nb-7 b-pink">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 17,22 7,44 T 15,66 Q 9,78 12,90" fill="none" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 8: Turquoise -->
+                    <div class="natural-balloon nb-8 b-teal">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 7,24 17,46 T 9,68 Q 15,80 12,90" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 9: Lavender -->
+                    <div class="natural-balloon nb-9 b-lavender">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 18,20 8,42 T 16,64 Q 10,76 12,90" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 10: Lemon Yellow -->
+                    <div class="natural-balloon nb-10 b-lemon">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 6,22 16,44 T 8,66 Q 14,78 12,90" fill="none" stroke="#fde047" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 11: Emerald Green -->
+                    <div class="natural-balloon nb-11 b-emerald">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 17,24 7,46 T 15,68 Q 9,80 12,90" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Balloon 12: Deep Berry -->
+                    <div class="natural-balloon nb-12 b-berry">
+                        <div class="balloon-body">
+                            <div class="balloon-gloss"></div>
+                        </div>
+                        <div class="balloon-knot"></div>
+                        <svg class="balloon-wavy-string" viewBox="0 0 24 90">
+                            <path d="M 12,0 Q 7,20 17,42 T 9,64 Q 15,76 12,90" fill="none" stroke="#ec4899" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 4. Birthday Tart Cake with Candle (Aesthetic Modern Tiered Cake - Hero Centerpiece) -->
+                <div class="ayush-cake-container">
+                    <!-- Radiant Warm Spotlight Halo Behind Cake -->
+                    <div class="cake-spotlight-halo"></div>
+                    
+                    <!-- Candle on Top with Glow Aura -->
+                    <div class="cake-candle">
+                        <div class="candle-glow-aura"></div>
+                        <div class="candle-flame"></div>
+                        <div class="candle-wick"></div>
+                        <div class="candle-stick"></div>
+                    </div>
+
+                    <!-- Top Tier (Strawberry Velvet with Glossy Glaze & Cherries) -->
+                    <div class="cake-tier cake-tier-top">
+                        <div class="cake-cherries">
+                            <span>🍒</span><span>🍓</span><span>🍒</span><span>🍓</span><span>🍒</span>
+                        </div>
+                        <div class="cake-drip-icing">
+                            <span class="drip d-1"></span>
+                            <span class="drip d-2"></span>
+                            <span class="drip d-3"></span>
+                            <span class="drip d-4"></span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Tier (Rich Vanilla Velvet Layer with Rosette Ribbon) -->
+                    <div class="cake-tier cake-tier-bottom">
+                        <div class="cake-piping-decor"></div>
+                        <div class="cake-pearl-band">
+                            <span class="band-star">✨</span>
+                            <span class="cake-hbd-label">HAPPY 28TH PATAR 💕</span>
+                            <span class="band-star">✨</span>
+                        </div>
+                    </div>
+
+                    <!-- Ceramic Cake Stand Plate & Shadow (At Bottom) -->
+                    <div class="cake-plate"></div>
+                    <div class="cake-plate-shadow"></div>
+                </div>
+
+                <!-- 5. Interactive Romantic Story Card Deck (Card Flip / Page Turn with Next & Prev) -->
+                <div class="ayush-story-container" id="ayush-story-card-deck">
+                    <div class="story-card-wrapper">
+                        <!-- Ambient Romantic Card Glow -->
+                        <div class="story-card-glow"></div>
+                        
+                        <!-- Main 3D Card Container -->
+                        <div class="story-card" id="story-flip-card">
+                            <!-- Card Top Header: Badge & Page Counter -->
+                            <div class="story-card-header">
+                                <div class="story-card-badge">
+                                    <span class="badge-sparkle">💌</span>
+                                    <span>PESAN DARI HATI</span>
+                                </div>
+                                <div class="story-card-pagination" id="story-card-counter">
+                                    <span id="story-cur-page">1</span><span class="counter-slash">/</span><span>7</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Body: Message Sentences with 3D Flip Viewport -->
+                            <div class="story-card-body">
+                                <div class="story-quote-mark quote-left">“</div>
+                                
+                                <div class="story-slides-viewport" id="story-slides-viewport">
+                                    <div class="story-card-slide active" data-slide="1">
+                                        <p class="story-slide-text">Haii ^_^ Ini jadi hari spesial lagi di tahun ini buat Patar dan buatku</p>
+                                        <div class="story-slide-accent">✨ 🎂 ✨</div>
+                                    </div>
+                                    <div class="story-card-slide" data-slide="2">
+                                        <p class="story-slide-text">Terima kasih ya sudah tetap ada di sepanjang satu tahun kebelakang ini, khususnya kehadirannya buat Ojen</p>
+                                        <div class="story-slide-accent">🌸 💫 🌸</div>
+                                    </div>
+                                    <div class="story-card-slide" data-slide="3">
+                                        <p class="story-slide-text">Terima kasih sudah mau bertahan, menghibur, dan tetap bahagia dibanding sebelumnya</p>
+                                        <div class="story-slide-accent">💖 💐 💖</div>
+                                    </div>
+                                    <div class="story-card-slide" data-slide="4">
+                                        <p class="story-slide-text">Makasih juga di tahun ini sudah mau lebih terbuka dan terus berkembang</p>
+                                        <div class="story-slide-accent">🌟 🕊️ 🌟</div>
+                                    </div>
+                                    <div class="story-card-slide" data-slide="5">
+                                        <p class="story-slide-text">Semoga di setiap perjalanan Patar selanjutnya bisa dipenuhi lebih banyak kebahagiaan dan senyuman yaa, aamiin</p>
+                                        <div class="story-slide-accent">✨ 🌈 ✨</div>
+                                    </div>
+                                    <div class="story-card-slide" data-slide="6">
+                                        <p class="story-slide-text">Semoga banyak kenangan indah yang bisa Patar simpan juga di satu tahun ke depan</p>
+                                        <div class="story-slide-accent">💕 📸 💕</div>
+                                    </div>
+                                    <div class="story-card-slide" data-slide="7">
+                                        <p class="story-slide-text">Ehh ehh lanjut dulu yuk, masih ada nihh ehh ehh....... .</p>
+                                        <div class="story-slide-accent">🎉 👑 🎁</div>
+                                    </div>
+                                </div>
+
+                                <div class="story-quote-mark quote-right">”</div>
+                            </div>
+
+                            <!-- Card Bottom Navigation & Progress Dots -->
+                            <div class="story-card-footer">
+                                <div class="story-dots-row" id="story-dots-row">
+                                    <span class="story-dot active" data-dot="1"></span>
+                                    <span class="story-dot" data-dot="2"></span>
+                                    <span class="story-dot" data-dot="3"></span>
+                                    <span class="story-dot" data-dot="4"></span>
+                                    <span class="story-dot" data-dot="5"></span>
+                                    <span class="story-dot" data-dot="6"></span>
+                                    <span class="story-dot" data-dot="7"></span>
+                                </div>
+
+                                <div class="story-card-nav">
+                                    <button type="button" class="story-nav-btn prev-btn" id="story-prev-btn" title="Pesan Sebelumnya">
+                                        <span class="btn-arrow-left">◀</span>
+                                        <span>Sebelumnya</span>
+                                    </button>
+                                    <button type="button" class="story-nav-btn next-btn" id="story-next-btn" title="Pesan Selanjutnya">
+                                        <span id="story-next-text">Selanjutnya</span>
+                                        <span id="story-next-arrow" class="btn-arrow-right">▶</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Step Action Bar (Bottom Floating Pill) -->
+                <div class="ayush-action-dock">
+                    <button id="ayush-step-btn" class="ayush-btn">
+                        <span class="ayush-btn-icon">💡</span>
+                        <span class="ayush-btn-text">Nyalakan Lampu</span>
+                        <span class="ayush-btn-arrow">➔</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 7: 9 Pulsing Expanding Color Bursts (Behind Photo) -->
+            <div class="eight">
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" />
+                </svg>
+            </div>
+
+            <!-- Step 5: Patuy Photo + Flying Birthday Hat + Elastic HBD Text (Netflix Grand Celebration) -->
+            <div class="six cinema-title-scene">
+                <!-- Netflix Kicker Badge -->
+                <div class="cinema-kicker netflix-grand-kicker">
+                    <span class="kicker-dot"></span> GRAND FINALE • PATUY'S SPECIAL PREMIERE
+                </div>
+
+                <div class="patuy-dp-wrapper">
+                    <img src="assets/images/20241228_122939-1.jpg" alt="Patuy Cantik" class="lydia-dp" data-node-name="imagePath">
+                    <img src="assets/images/hat.svg" alt="Birthday Hat" class="hat">
+                    <div class="dp-netflix-ring"></div>
+                </div>
+
+                <div class="wish">
+                    <h3 class="wish-hbd" data-node-name="wishHeading">HAPPY BIRTHDAY!</h3>
+                    <h5 data-node-name="wishText">May life shower you with everything you’ve ever dreamed of! 💕✨</h5>
+                </div>
+            </div>
+
+            <!-- Step 6: 30+ Floating Flying Balloon SVGs -->
+            <div class="seven">
+                <div class="baloons">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon2.svg" alt="balon">
+                    <img src="assets/images/ballon1.svg" alt="balon">
+                    <img src="assets/images/ballon3.svg" alt="balon">
+                </div>
+            </div>
+
+            <!-- Step 8: Compact Aesthetic Netflix Next Episode Card (.nine) -->
+            <div class="nine cinema-title-scene">
+                <div class="netflix-outro-card netflix-compact-card">
+                    <!-- Netflix Ambient Glow -->
+                    <div class="netflix-outro-glow"></div>
+
+                    <!-- Top Header: Next Episode Badge + Ready Status -->
+                    <div class="netflix-outro-top">
+                        <div class="netflix-outro-badge">
+                            <span class="n-logo-mini">P</span>
+                            <span>SELANJUTNYA • EPISODE 2</span>
+                        </div>
+                        <div class="netflix-outro-auto-badge">
+                            <span class="pulse-dot"></span>
+                            <span>SIAP DIPUTAR</span>
+                        </div>
+                    </div>
+
+                    <!-- Next Episode Preview Row (Thumbnail + Episode Details) -->
+                    <div class="netflix-next-preview-row">
+                        <!-- Compact Thumbnail with overlay play icon -->
+                        <div class="netflix-next-thumb-wrap">
+                            <img src="assets/images/IMG-20250501-WA0010.jpg" alt="Episode 2 Preview" class="netflix-next-thumb-img">
+                            <div class="netflix-thumb-play-overlay">
+                                <span class="thumb-play-icon">🎵</span>
+                            </div>
+                            <span class="thumb-dur-badge">EP 2</span>
+                        </div>
+
+                        <!-- Episode Details -->
+                        <div class="netflix-next-details">
+                            <div class="netflix-meta-row">
+                                <span class="meta-season">SEASON 28</span>
+                                <span class="meta-dot">•</span>
+                                <span class="meta-badge">SOUNDTRACK</span>
+                            </div>
+                            <h3 class="netflix-next-title">Playlist Musik Spesial</h3>
+                            <p class="netflix-next-synopsis">
+                                Kumpulan lagu favorit dan melodi terindah pengiring perayaan ulang tahun Patuy...
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Single Clean Prominent Netflix Hero Play Button -->
+                    <div class="netflix-single-action-wrap">
+                        <a href="musik.html" class="netflix-play-next-hero-btn" id="netflix-play-next-btn">
+                            <span class="btn-play-icon">▶</span>
+                            <span class="btn-play-text">Putar Playlist Musik Sekarang</span>
+                            <span class="btn-play-arrow">➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Outro Farewell Message -->
+                    <div class="netflix-outro-footer-note">
+                        <span>Terima kasih sudah menonton • Hope you liked it!</span>
+                        <span class="outro-heart">💕</span>
+                        <span class="last-smile">:)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- eWishWell High-Performance Dynamic Balloon Overlay Stage -->
+    <div id="ewishwell-balloon-stage" class="ewishwell-balloon-stage" aria-hidden="true"></div>
+
+    <!-- GSAP & Particle Effects Engine -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="js/audio-player.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/surprise.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/spa-router.js"></script>
+</body>
+</html>

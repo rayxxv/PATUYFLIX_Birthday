@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATUYFLIX — Playlist Musik Spesial 🎵</title>
+    <meta name="description" content="Playlist lagu favorit berdua untuk Patuy.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="netflix-theme">
+    <!-- Starry Background Canvas -->
+    <canvas id="starry-canvas"></canvas>
+
+    <!-- Netflix Top Navigation Header -->
+    <header class="netflix-header" id="netflix-header">
+        <div class="header-left">
+            <a href="index.html" class="netflix-logo">PATUYFLIX</a>
+        </div>
+        <div class="header-right">
+            <span class="nav-icon" title="Cari Cinta">🔍</span>
+            <span class="nav-icon" title="Notifikasi Ulang Tahun">🔔</span>
+            <a href="profile.html" class="profile-badge" style="text-decoration: none; cursor: pointer;">
+                <span class="profile-avatar">💕</span>
+                <span class="profile-name">Patuy</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-container netflix-gallery-page" style="max-width: 1040px; margin: 0 auto; padding: 100px 20px 60px 20px;">
+        
+        <!-- Header Title Section -->
+        <section class="netflix-gallery-header text-center" style="text-align: center; margin-bottom: 32px; max-width: 820px; margin-left: auto; margin-right: auto;">
+            <div class="netflix-brand-badge-pill" style="margin: 0 auto 14px auto;">
+                <span class="n-pill-dot"></span>
+                <span class="n-pill-text">PATUYFLIX ORIGINAL SOUNDTRACK • 6 TRACKS</span>
+            </div>
+            <h1 class="netflix-gallery-title" style="font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 12px;">🎵 Playlist Musik: Soundtrack Spesial Patuy</h1>
+            <p class="netflix-gallery-subtitle" style="margin: 0 auto; color: rgba(255, 255, 255, 0.75); font-size: 1.05rem;">
+                Kumpulan lagu favorit berdua yang menemani kisah manis Patuy & Ojen. Putar lagu dan nikmati setiap melodinya! ✨
+            </p>
+        </section>
+
+        <!-- Spotify-style Player Card with Frosted Glass Theme & Vertical Playlist -->
+        <section style="width: 100%; max-width: 680px; margin: 0 auto;">
+            <div class="spotify-glass-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; border-radius: 28px; padding: 32px 28px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.3); display: flex; flex-direction: column; align-items: center; gap: 22px; position: relative;">
+                
+                <!-- Top Header Tag -->
+                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="background: #e50914; color: #fff; padding: 2px 8px; border-radius: 6px; font-weight: 900; font-size: 0.75rem;">PATUYFLIX</span>
+                        <span style="color: #ffffff; letter-spacing: 0.5px;">SPOTIFY PLAYER</span>
+                    </div>
+                    <span style="color: #1ed760; font-weight: 800; display: flex; align-items: center; gap: 4px;">● NOW PLAYING</span>
+                </div>
+
+                <!-- Active Album Art & Song Info Header -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
+                    <div id="album-art" style="width: 120px; height: 120px; border-radius: 20px; background: linear-gradient(135deg, #ff416c, #ff4b2b); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; box-shadow: 0 10px 25px rgba(255, 65, 108, 0.45); transition: transform 0.3s ease;">
+                        💙
+                    </div>
+                    <div>
+                        <h2 id="track-title" style="font-size: 1.5rem; font-weight: 900; color: #ffffff; margin-bottom: 4px; font-family: 'Montserrat', sans-serif;">Teenage Blue</h2>
+                        <p id="track-artist" style="font-size: 0.95rem; color: #ff8da1; font-weight: 700; margin: 0;">Eve (Ao no Hako / Blue Box ED)</p>
+                    </div>
+                </div>
+
+                <!-- Progress Bar & Timer -->
+                <div style="width: 100%; display: flex; flex-direction: column; gap: 6px;">
+                    <div id="progress-bar-bg" style="width: 100%; height: 6px; background: rgba(255, 255, 255, 0.2); border-radius: 6px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div id="progress-bar-fill" style="width: 0%; height: 100%; background: linear-gradient(90deg, #e50914, #ff416c); border-radius: 6px; transition: width 0.1s linear;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); font-weight: 700;">
+                        <span id="current-time">0:00</span>
+                        <span id="total-duration">3:46</span>
+                    </div>
+                </div>
+
+                <!-- Player Controls (Red Accent on Frosted Glass) -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+                    <button id="prev-btn" style="background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; width: 46px; height: 46px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;">⏮</button>
+                    <button id="play-btn" style="background: linear-gradient(135deg, #e50914, #ff416c); border: none; color: #fff; width: 62px; height: 62px; border-radius: 50%; font-size: 1.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(229, 9, 20, 0.5); transition: all 0.2s ease;">▶</button>
+                    <button id="next-btn" style="background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; width: 46px; height: 46px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;">⏭</button>
+                </div>
+
+                <!-- Spotify Vertical Tracklist (Ke Bawah) -->
+                <div style="width: 100%; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px;">
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; text-align: left;">
+                        📋 Playlist Soundtrack (6 Lagu):
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+                        
+                        <!-- Track Item 1 -->
+                        <button onclick="if(window.GlobalMusic) window.GlobalMusic.loadTrack(0, true);" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; transition: all 0.2s ease; text-align: left;">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <span style="font-size: 1.5rem;">💙</span>
+                                <div>
+                                    <div style="font-weight: 800; font-size: 0.95rem; color: #fff;">1. Teenage Blue (ティーンエイジブルー)</div>
+                                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: 500;">Eve (Blue Box ED)</div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ff8da1; font-weight: 700;">3:46</span>
+                        </button>
+
+                        <!-- Track Item 2 -->
+                        <button onclick="if(window.GlobalMusic) window.GlobalMusic.loadTrack(1, true);" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; transition: all 0.2s ease; text-align: left;">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <span style="font-size: 1.5rem;">✨</span>
+                                <div>
+                                    <div style="font-weight: 800; font-size: 0.95rem; color: #fff;">2. Antanante. (あんたなんて。)</div>
+                                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: 500;">Eve / WurtS</div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ff8da1; font-weight: 700;">4:02</span>
+                        </button>
+
+                        <!-- Track Item 3 -->
+                        <button onclick="if(window.GlobalMusic) window.GlobalMusic.loadTrack(2, true);" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; transition: all 0.2s ease; text-align: left;">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <span style="font-size: 1.5rem;">💖</span>
+                                <div>
+                                    <div style="font-weight: 800; font-size: 0.95rem; color: #fff;">3. Kamu</div>
+                                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: 500;">Napking</div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ff8da1; font-weight: 700;">3:54</span>
+                        </button>
+
+                        <!-- Track Item 4 -->
+                        <button onclick="if(window.GlobalMusic) window.GlobalMusic.loadTrack(3, true);" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; transition: all 0.2s ease; text-align: left;">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <span style="font-size: 1.5rem;">🎶</span>
+                                <div>
+                                    <div style="font-weight: 800; font-size: 0.95rem; color: #fff;">4. Olivia Dean Medley (Cover)</div>
+                                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: 500;">Mild Nawin</div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ff8da1; font-weight: 700;">5:48</span>
+                        </button>
+
+                        <!-- Track Item 5 -->
+                        <button onclick="if(window.GlobalMusic) window.GlobalMusic.loadTrack(4, true);" style="background: rgba(229, 9, 20, 0.25); border: 1px solid rgba(229, 9, 20, 0.5); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; transition: all 0.2s ease; text-align: left;">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <span style="font-size: 1.5rem;">🎹</span>
+                                <div>
+                                    <div style="font-weight: 800; font-size: 0.95rem; color: #fff;">5. ∞ (Uma Musume Piano)</div>
+                                    <div style="font-size: 0.8rem; color: #ff8da1; font-weight: 600;">Kyle Xian Piano Cover</div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ff8da1; font-weight: 700;">2:17</span>
+                        </button>
+
+                        <!-- Track Item 6 -->
+                        <button onclick="if(window.GlobalMusic) window.GlobalMusic.loadTrack(5, true);" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; transition: all 0.2s ease; text-align: left;">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <span style="font-size: 1.5rem;">💑</span>
+                                <div>
+                                    <div style="font-weight: 800; font-size: 0.95rem; color: #fff;">6. Partner (パートナー)</div>
+                                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: 500;">Yuka (有華)</div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #ff8da1; font-weight: 700;">2:58</span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="gallery-next-cta text-center" style="margin-top: 45px; margin-bottom: 60px;">
+            <a href="game.html" class="n-btn n-btn-primary pulse-hero-btn" style="border-radius: 30px; padding: 14px 32px; font-weight: 800; text-decoration: none;">
+                <span>Lanjut ke Game Arcade (Tangkap Hati) 🎮</span>
+                <span style="font-size: 1.2rem;">➔</span>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="netflix-footer text-center">
+        <p>PATUYFLIX Original &copy; 2026. Made with ❤️ for Patuy (7 September).</p>
+    </footer>
+
+    <script src="js/audio-player.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/spa-router.js"></script>
+</body>
+</html>

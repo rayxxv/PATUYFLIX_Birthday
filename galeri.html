@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATUYFLIX — Galeri Episode Kenangan 📸</title>
+    <meta name="description" content="Koleksi tayangan episode kenangan terindah Patuy & Ojen format Netflix 4K HDR.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Figtree:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="netflix-theme">
+    <!-- Starry Background Canvas -->
+    <canvas id="starry-canvas"></canvas>
+
+    <!-- Netflix Top Navigation Header -->
+    <header class="netflix-header" id="netflix-header">
+        <div class="header-left">
+            <a href="index.html" class="netflix-logo">PATUYFLIX</a>
+        </div>
+        <div class="header-right">
+            <span class="nav-icon" title="Cari Cinta">🔍</span>
+            <span class="nav-icon" title="Notifikasi Ulang Tahun">🔔</span>
+            <a href="profile.html" class="profile-badge" style="text-decoration: none; cursor: pointer;">
+                <span class="profile-avatar">💕</span>
+                <span class="profile-name">Patuy</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-container netflix-gallery-page">
+        
+        <section id="memories-section" class="netflix-row-section margin-top-lg">
+            <div class="netflix-gallery-header">
+                <div class="netflix-brand-badge-pill">
+                    <span class="n-pill-dot"></span>
+                    <span class="n-pill-text">PATUYFLIX ORIGINAL SPECIAL • SEASON 28</span>
+                </div>
+                <h1 class="netflix-gallery-title">Galeri Episode: Spesial Ulang Tahun Ke-28 Patar 💕</h1>
+                <p class="netflix-gallery-subtitle">Koleksi 16 episode momen gemas, estetik, dan random dari Patawu tercinta. Klik kartu tayangan untuk kepoin sinopsis ceritanya! 🍿</p>
+                
+                <!-- Netflix Filter Category Tabs -->
+                <div class="netflix-filter-tabs" id="gallery-filter-tabs">
+                    <button class="n-tab-btn active" data-filter="all">
+                        <span class="tab-icon">🍿</span>
+                        <span>Semua Episode (16)</span>
+                    </button>
+                    <button class="n-tab-btn" data-filter="ultah">
+                        <span class="tab-icon">🎂</span>
+                        <span>Spesial Ultah 28th</span>
+                    </button>
+                    <button class="n-tab-btn" data-filter="manis">
+                        <span class="tab-icon">🌸</span>
+                        <span>Momen Manis</span>
+                    </button>
+                    <button class="n-tab-btn" data-filter="candid">
+                        <span class="tab-icon">📸</span>
+                        <span>Candid Gemas</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="netflix-episodes-grid" id="polaroid-grid"></div>
+        </section>
+
+        <div class="gallery-next-cta text-center margin-top">
+            <a href="wordle.html" class="n-btn n-btn-primary pulse-hero-btn" style="border-radius: 30px; padding: 14px 32px; font-weight: 800; text-decoration: none;">
+                <span>Lanjut ke Game Wordle (Tebak Kata) 🔠</span>
+                <span class="cta-arrow" style="font-size: 1.2rem;">➔</span>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Netflix Modal Detail Lightbox -->
+    <div id="lightbox-modal" class="modal-backdrop hidden">
+        <div class="netflix-modal-card">
+            <button class="modal-close" id="close-lightbox-btn" title="Tutup Modal">&times;</button>
+            <div class="modal-hero-banner" id="lightbox-img-wrapper"></div>
+            
+            <div class="modal-body-content">
+                <div class="modal-badge-line">
+                    <span class="modal-n-tag">PATUYFLIX ORIGINAL</span>
+                    <span class="modal-match-tag" id="modal-match">99% Cocok</span>
+                    <span class="modal-age-tag" id="modal-age">28+</span>
+                    <span class="modal-quality-tag" id="modal-quality">4K Ultra HD</span>
+                    <span class="modal-year-tag" id="modal-year">2026</span>
+                </div>
+
+                <h2 id="lightbox-title" class="modal-episode-title">Judul Episode</h2>
+                <div class="modal-genre-tag" id="modal-genre">Romance • Slice of Life</div>
+                <p id="lightbox-sub" class="modal-episode-synopsis">Sinopsis cerita...</p>
+                
+                <div class="modal-actions-bar">
+                    <button class="modal-play-btn" id="modal-play-action">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <span>Lihat Resolusi Penuh</span>
+                    </button>
+                    <span class="modal-extra-note" id="modal-note">Diabadikan dengan penuh cinta ❤️</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="netflix-footer text-center">
+        <p>PATUYFLIX Original &copy; 2026. Made with ❤️ for Patuy (7 September).</p>
+    </footer>
+
+    <script src="js/audio-player.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/spa-router.js"></script>
+</body>
+</html>

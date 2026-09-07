@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATUYFLIX — Beranda Utama 💕</title>
+    <meta name="description" content="A special Netflix-style birthday experience created with love for Patuy.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800&family=Lilita+One&family=Righteous&family=Montserrat:wght@400;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <style>
+        /* True Netflix Edge-to-Edge Fullscreen Layout (Desktop.pdf 100% Match) */
+        html, body.netflix-theme {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            background-color: #141414 !important;
+            overflow-x: hidden !important;
+        }
+
+        #starry-canvas {
+            display: none !important;
+        }
+
+        .netflix-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 68px !important;
+            padding: 0 7.5% !important;
+            z-index: 1000 !important;
+            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+
+        .home-main-container {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative !important;
+            z-index: 1 !important;
+            overflow-x: hidden !important;
+        }
+
+        .netflix-hero {
+            position: relative !important;
+            width: 100vw !important;
+            min-height: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            padding: 95px 0 12px 0 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            overflow: visible !important;
+        }
+
+        .hero-backdrop {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100% !important;
+            min-height: 100% !important;
+            background-image: url('assets/images/hero-banner.jpg') !important;
+            background-size: cover !important;
+            background-position: right 18% center !important;
+            background-repeat: no-repeat !important;
+            border-radius: 0 !important;
+            z-index: 1 !important;
+        }
+
+        .hero-vignette {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100% !important;
+            min-height: 100% !important;
+            background: 
+                linear-gradient(to right, #141414 0%, rgba(20, 20, 20, 0.95) 30%, rgba(20, 20, 20, 0.68) 48%, rgba(20, 20, 20, 0.15) 72%, transparent 100%),
+                linear-gradient(to top, #141414 0%, rgba(20, 20, 20, 0.95) 15%, rgba(20, 20, 20, 0.5) 40%, transparent 65%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, transparent 15%) !important;
+            pointer-events: none !important;
+            border-radius: 0 !important;
+            z-index: 2 !important;
+        }
+
+        .hero-content {
+            position: relative !important;
+            z-index: 3 !important;
+            max-width: 620px !important;
+            padding: 0 0 0 7.5% !important;
+            margin: 0 !important;
+        }
+
+        /* Playful & Attractive Cinematic Hero Title */
+        .playful-title {
+            font-family: 'Lilita One', 'Fredoka', cursive, sans-serif !important;
+            line-height: 0.95 !important;
+            margin-bottom: 16px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2px !important;
+        }
+
+        .title-word-patuy {
+            font-family: 'Lilita One', cursive, sans-serif !important;
+            font-size: 4.5rem !important;
+            background: linear-gradient(135deg, #ffffff 30%, #ffd1dc 75%, #ff9ebb 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 25px rgba(229, 9, 20, 0.35)) !important;
+            letter-spacing: 1.5px !important;
+        }
+
+        .title-word-special {
+            font-family: 'Righteous', 'Lilita One', cursive, sans-serif !important;
+            font-size: 3.1rem !important;
+            letter-spacing: 2.5px !important;
+            background: linear-gradient(90deg, #ff416c 0%, #ff4b2b 45%, #ffb703 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.9)) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .title-sparkle {
+            -webkit-text-fill-color: initial !important;
+            font-size: 2.2rem !important;
+            display: inline-block !important;
+            animation: sparkle-bounce 2.5s ease-in-out infinite alternate !important;
+        }
+
+        @keyframes sparkle-bounce {
+            0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 4px #ffd700); }
+            100% { transform: scale(1.3) rotate(20deg); filter: drop-shadow(0 0 14px #ff4b2b); }
+        }
+
+        @media (max-width: 768px) {
+            .title-word-patuy {
+                font-size: 3rem !important;
+            }
+            .title-word-special {
+                font-size: 2rem !important;
+            }
+        }
+
+        .hero-synopsis {
+            font-size: 1.05rem !important;
+            line-height: 1.55 !important;
+            color: rgba(255, 255, 255, 0.92) !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95) !important;
+            max-width: 500px !important;
+            margin-bottom: 20px !important;
+        }
+
+        /* Hero Meta Row */
+        .hero-meta-row {
+            display: flex !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            gap: 10px !important;
+            margin-bottom: 16px !important;
+        }
+
+        .meta-dot {
+            color: rgba(255, 255, 255, 0.35) !important;
+            font-size: 0.8rem !important;
+        }
+
+        /* Modern Frosted Glass HUD Countdown (Floating Bottom-Right) */
+        .modern-hud-countdown {
+            position: fixed !important;
+            right: 28px !important;
+            bottom: 28px !important;
+            z-index: 9999 !important;
+            background: rgba(15, 15, 20, 0.82) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            border-radius: 16px !important;
+            padding: 12px 20px 14px 20px !important;
+            width: fit-content !important;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+
+        .modern-hud-countdown:hover {
+            border-color: rgba(229, 9, 20, 0.7) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(229, 9, 20, 0.4) !important;
+            transform: translateY(-4px) scale(1.02) !important;
+        }
+
+        /* Hide floating music dock on home page (Beranda) */
+        .global-music-dock {
+            display: none !important;
+        }
+
+        .hud-header {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            margin-bottom: 8px !important;
+        }
+
+        .hud-live-dot {
+            width: 6px !important;
+            height: 6px !important;
+            border-radius: 50% !important;
+            background-color: #e50914 !important;
+            box-shadow: 0 0 8px #e50914 !important;
+            animation: live-pulse 1.5s infinite !important;
+        }
+
+        @keyframes live-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .hud-label {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 0.65rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 2px !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            text-transform: uppercase !important;
+        }
+
+        .hud-timer-strip {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+        }
+
+        .hud-unit {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            min-width: 44px !important;
+        }
+
+        .hud-val {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 2.1rem !important;
+            font-weight: 900 !important;
+            line-height: 1 !important;
+            color: #ffffff !important;
+            letter-spacing: -0.5px !important;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.4) !important;
+        }
+
+        .hud-tag {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 0.58rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 1.5px !important;
+            color: rgba(255, 255, 255, 0.5) !important;
+            margin-top: 4px !important;
+            text-transform: uppercase !important;
+        }
+
+        .hud-colon {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 800 !important;
+            color: #e50914 !important;
+            margin-top: -8px !important;
+            opacity: 0.85 !important;
+            animation: blink-colon 1.5s infinite !important;
+        }
+
+        @keyframes blink-colon {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @media (max-width: 768px) {
+            .modern-hud-countdown {
+                position: relative !important;
+                right: auto !important;
+                bottom: auto !important;
+                margin: 20px 0 0 5% !important;
+                padding: 10px 16px !important;
+            }
+            .hud-val {
+                font-size: 1.6rem !important;
+            }
+            .hud-unit {
+                min-width: 36px !important;
+            }
+            .hud-timer-strip {
+                gap: 8px !important;
+            }
+        }
+
+        /* Authentic Netflix Top 10 Stacked Badge */
+        .hero-top10-line {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            margin-bottom: 12px !important;
+        }
+
+        .top10-badge-box {
+            background-color: #e50914 !important;
+            color: #ffffff !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 2px 5px !important;
+            border-radius: 3px !important;
+            font-weight: 900 !important;
+            line-height: 0.9 !important;
+            box-shadow: 0 0 10px rgba(229, 9, 20, 0.6) !important;
+            flex-shrink: 0 !important;
+        }
+
+        .top10-badge-box .top-text {
+            font-size: 0.55rem !important;
+            letter-spacing: 0.5px !important;
+            font-weight: 900 !important;
+        }
+
+        .top10-badge-box .ten-text {
+            font-size: 0.82rem !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.5px !important;
+        }
+
+        .top10-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1.15rem !important;
+            font-weight: 800 !important;
+            color: #ffffff !important;
+            letter-spacing: 0.3px !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9) !important;
+        }
+
+        /* Netflix Action Buttons - Desktop.pdf Exact Match */
+        .hero-buttons {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            margin-bottom: 0px !important;
+        }
+
+        .n-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            padding: 10px 24px !important;
+            font-size: 1.05rem !important;
+            font-weight: 700 !important;
+            border-radius: 4px !important;
+            cursor: pointer !important;
+            border: none !important;
+            text-decoration: none !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .n-btn-primary {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        .n-btn-primary:hover {
+            background-color: rgba(255, 255, 255, 0.75) !important;
+        }
+
+        .n-btn-secondary {
+            background-color: rgba(109, 109, 110, 0.7) !important;
+            color: #ffffff !important;
+            backdrop-filter: blur(8px) !important;
+        }
+
+        .n-btn-secondary:hover {
+            background-color: rgba(109, 109, 110, 0.4) !important;
+        }
+
+        /* Netflix Browse Cards Row - Desktop.pdf Exact Match */
+        .netflix-row-section {
+            margin-top: 24px !important;
+            margin-bottom: 45px !important;
+            padding: 0 7.5% 35px 7.5% !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+
+        .netflix-row-section .row-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1.45rem !important;
+            font-weight: 800 !important;
+            color: #ffffff !important;
+            margin-bottom: 16px !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .netflix-coming-week-row {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: stretch !important;
+            gap: 10px !important;
+            overflow-x: auto !important;
+            padding: 8px 0 20px 0 !important;
+            scrollbar-width: thin !important;
+        }
+
+        .netflix-show-card {
+            flex: 0 0 240px !important;
+            width: 240px !important;
+            height: 135px !important;
+            background: #18181c !important;
+            border-radius: 4px !important;
+            overflow: hidden !important;
+            text-decoration: none !important;
+            display: flex !important;
+            position: relative !important;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7) !important;
+        }
+
+        .netflix-show-card:hover {
+            transform: scale(1.08) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.95), 0 0 15px rgba(255, 255, 255, 0.25) !important;
+            z-index: 10 !important;
+        }
+
+        .show-thumb {
+            width: 100% !important;
+            height: 100% !important;
+            position: relative !important;
+            padding: 10px 12px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .netflix-episode-badge {
+            display: inline-block !important;
+            background-color: #e50914 !important;
+            color: #ffffff !important;
+            font-size: 0.6rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.5px !important;
+            padding: 2px 5px !important;
+            border-radius: 2px !important;
+            text-transform: uppercase !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        /* Persistent Global Music Dock */
+        .global-music-dock {
+            position: fixed !important;
+            bottom: 24px !important;
+            right: 24px !important;
+            z-index: 9999 !important;
+            pointer-events: auto !important;
+        }
+
+        .music-dock-pill {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            background: rgba(18, 18, 22, 0.92) !important;
+            backdrop-filter: blur(14px) !important;
+            -webkit-backdrop-filter: blur(14px) !important;
+            border: 1px solid rgba(229, 9, 20, 0.4) !important;
+            border-radius: 40px !important;
+            padding: 8px 16px !important;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(229, 9, 20, 0.2) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .music-dock-pill:hover {
+            border-color: #e50914 !important;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(229, 9, 20, 0.4) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .music-dock-icon {
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+        }
+
+        .music-note-symbol {
+            font-size: 1.2rem !important;
+        }
+
+        .sound-bars {
+            display: flex !important;
+            align-items: flex-end !important;
+            gap: 2px !important;
+            height: 14px !important;
+        }
+
+        .sound-bars .bar {
+            width: 3px !important;
+            height: 4px !important;
+            background-color: #e50914 !important;
+            border-radius: 2px !important;
+            transition: height 0.2s ease !important;
+        }
+
+        .sound-bars.playing .bar:nth-child(1) { animation: sound-bounce 0.8s infinite alternate ease-in-out !important; }
+        .sound-bars.playing .bar:nth-child(2) { animation: sound-bounce 0.8s 0.2s infinite alternate ease-in-out !important; }
+        .sound-bars.playing .bar:nth-child(3) { animation: sound-bounce 0.8s 0.4s infinite alternate ease-in-out !important; }
+
+        @keyframes sound-bounce {
+            0% { height: 3px; }
+            100% { height: 14px; }
+        }
+
+        .music-dock-info {
+            display: flex !important;
+            flex-direction: column !important;
+            max-width: 140px !important;
+            overflow: hidden !important;
+        }
+
+        .dock-title {
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            color: #ffffff !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+
+        .dock-artist {
+            font-size: 0.68rem !important;
+            color: rgba(255, 255, 255, 0.65) !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+
+        .music-dock-controls {
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+        }
+
+        .dock-btn {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            color: #ffffff !important;
+            width: 32px !important;
+            height: 32px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            font-size: 0.85rem !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .dock-btn:hover {
+            background: #e50914 !important;
+            border-color: #e50914 !important;
+            transform: scale(1.1) !important;
+        }
+
+        .netflix-footer {
+            padding: 30px 20px 50px 20px !important;
+            margin-top: 40px !important;
+            color: rgba(255, 255, 255, 0.5) !important;
+            font-size: 0.85rem !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+    </style>
+</head>
+<body class="netflix-theme">
+    <!-- Starry Background Canvas -->
+    <canvas id="starry-canvas"></canvas>
+
+    <!-- Interactive Birthday Magic Sequence Overlay (Faahim + AyuSharma Style) -->
+    <div id="magic-birthday-overlay" class="magic-overlay hidden-overlay">
+        <!-- Floating Decorator Balloons Container -->
+        <div id="magic-balloon-container" class="magic-balloon-container"></div>
+        
+        <div class="magic-card text-center">
+            <!-- Close / Skip Button -->
+            <button class="modal-close" onclick="closeMagicOverlay()" title="Tutup & Ke Galeri">&times;</button>
+
+            <!-- Faahim Chat Bubble Container -->
+            <div id="magic-chat-box" class="magic-chat-box hidden-element">
+                <div class="chat-header">
+                    <span class="chat-avatar">💕</span>
+                    <span class="chat-name">Pesan Untuk Patuy</span>
+                    <span class="chat-status">🟢 Baru saja</span>
+                </div>
+                <div class="chat-bubble outgoing">
+                    <p>💬 <em>"Selamat Ulang Tahun ya Patuy... 🎉"</em></p>
+                </div>
+            </div>
+
+            <!-- Lights & Banners -->
+            <div id="magic-banner" class="magic-banner hidden-element">
+                <span class="b-letter">H</span><span class="b-letter">A</span><span class="b-letter">P</span><span class="b-letter">P</span><span class="b-letter">Y</span>
+                &nbsp;
+                <span class="b-letter">B</span><span class="b-letter">I</span><span class="b-letter">R</span><span class="b-letter">T</span><span class="b-letter">H</span><span class="b-letter">D</span><span class="b-letter">A</span><span class="b-letter">Y</span>
+                &nbsp;
+                <span class="b-letter">P</span><span class="b-letter">A</span><span class="b-letter">T</span><span class="b-letter">U</span><span class="b-letter">Y</span><span class="b-letter">!</span>
+            </div>
+
+            <!-- Birthday Cake Visual -->
+            <div id="magic-cake-wrapper" class="magic-cake-wrapper hidden-element">
+                <div class="magic-cake">
+                    <div class="cake-candle">
+                        <div id="candle-flame" class="candle-flame hidden-element"></div>
+                    </div>
+                    <div class="cake-top"></div>
+                    <div class="cake-bottom"></div>
+                </div>
+            </div>
+
+            <!-- Dynamic Step Prompt Message -->
+            <h2 id="magic-step-title" class="magic-step-title">Hey Patuy 💕</h2>
+            <p id="magic-step-sub" class="magic-step-sub">Aku suka banget sama namamu...</p>
+
+            <!-- Interactive Magic Step Buttons -->
+            <div class="magic-btn-wrapper margin-top">
+                <button id="magic-step-btn" class="n-btn n-btn-primary pulse-hero-btn">
+                    Lanjut ➔
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Netflix Top Navigation Header -->
+    <header class="netflix-header" id="netflix-header">
+        <div class="header-left">
+            <a href="index.html" class="netflix-logo">PATUYFLIX</a>
+            <nav class="netflix-nav-links">
+                <a href="surprise.html">Kejutan 🎈</a>
+                <a href="musik.html">Musik 🎵</a>
+                <a href="game.html">Game Arcade 🎮</a>
+                <a href="galeri.html">Galeri Foto 📸</a>
+                <a href="wordle.html">Wordle 🔠</a>
+                <a href="video.html">Pesan Video 🎬</a>
+                <a href="surat.html">Surat Ucapan ✉️</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <span class="nav-icon" title="Cari Cinta">🔍</span>
+            <span class="nav-icon" title="Notifikasi Ulang Tahun">🔔</span>
+            <a href="profile.html" class="profile-badge" style="text-decoration: none; cursor: pointer;">
+                <span class="profile-avatar">💕</span>
+                <span class="profile-name">Patuy</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Netflix App Container (Full-Bleed 100% Screen Edge-to-Edge) -->
+    <main class="home-main-container">
+
+        <!-- 1. Netflix Hero Landing Screen -->
+        <section id="hero" class="netflix-hero">
+            <div class="hero-backdrop"></div>
+            <div class="hero-vignette"></div>
+            
+            <div class="hero-content">
+                <div class="netflix-tag-line">
+                    <span class="n-logo-badge">N</span>
+                    <span class="original-tag">SERIES</span>
+                </div>
+                
+                <h1 class="hero-title playful-title">
+                    <span class="title-word-patuy">PATUY'S</span>
+                    <span class="title-word-special">SPECIAL DAY <span class="title-sparkle">✨</span></span>
+                </h1>
+                
+                <div class="hero-meta-row">
+                    <div class="top10-badge-box">
+                        <span class="top-text">TOP</span>
+                        <span class="ten-text">10</span>
+                    </div>
+                    <span class="top10-title">#1 in My Heart Today</span>
+                    <span class="meta-dot">•</span>
+                    <span class="match-badge">98% Match</span>
+                    <span class="quality-badge">28 Years</span>
+                    <span class="quality-badge">Ultra HD 4K</span>
+                </div>
+
+                <p class="hero-synopsis">
+                    Sebuah persembahan istimewa merayakan ulang tahun ke-28 Patuy pada 7 September. Menghadirkan panggung kejutan, playlist lagu favorit, dan galeri kenangan terindah. ✨
+                </p>
+
+                <!-- Netflix Action Buttons -->
+                <div class="hero-buttons">
+                    <a href="surprise.html" class="n-btn n-btn-primary">
+                        <span class="btn-icon-symbol">▶</span> Mulai Kejutan
+                    </a>
+                    <a href="https://www.instagram.com/patarnotstar/" target="_blank" rel="noopener noreferrer" class="n-btn n-btn-secondary">
+                        <span class="btn-icon-symbol">ℹ</span> Buka Galeri
+                    </a>
+                </div>
+            </div>
+
+            <!-- Modern Minimalist Frosted Glass HUD Countdown (Positioned at Bottom-Right of Hero Banner) -->
+            <div class="modern-hud-countdown">
+                <div class="hud-header">
+                    <span class="hud-live-dot"></span>
+                    <span class="hud-label" id="hud-countdown-label">COUNTDOWN TO 7 SEPTEMBER 2026</span>
+                </div>
+                <div class="hud-timer-strip" id="countdown">
+                    <div class="hud-unit">
+                        <span class="hud-val" id="days">00</span>
+                        <span class="hud-tag">HARI</span>
+                    </div>
+                    <span class="hud-colon">:</span>
+                    <div class="hud-unit">
+                        <span class="hud-val" id="hours">00</span>
+                        <span class="hud-tag">JAM</span>
+                    </div>
+                    <span class="hud-colon">:</span>
+                    <div class="hud-unit">
+                        <span class="hud-val" id="minutes">00</span>
+                        <span class="hud-tag">MENIT</span>
+                    </div>
+                    <span class="hud-colon">:</span>
+                    <div class="hud-unit">
+                        <span class="hud-val" id="seconds">00</span>
+                        <span class="hud-tag">DETIK</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NETFLIX BROWSE ROW: POPULAR ON NETFLIX (Desktop.pdf Match) -->
+        <section class="netflix-row-section">
+            <h2 class="row-title">Popular on Netflix</h2>
+
+            <div class="netflix-coming-week-row">
+                <!-- 1. Kejutan Spesial -->
+                <a href="surprise.html" class="netflix-show-card">
+                    <div class="show-thumb thumb-surprise">
+                        <span class="n-card-badge">N</span>
+                        <div class="show-title-overlay">
+                            <h3 class="show-name">KEJUTAN 🎈</h3>
+                            <span class="netflix-episode-badge">PREMIERE</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 2. Musik & Playlist -->
+                <a href="musik.html" class="netflix-show-card">
+                    <div class="show-thumb thumb-music">
+                        <span class="n-card-badge">N</span>
+                        <div class="show-title-overlay">
+                            <h3 class="show-name">MUSIK 🎵</h3>
+                            <span class="netflix-episode-badge">SOUNDTRACK</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3. Game Arcade -->
+                <a href="game.html" class="netflix-show-card">
+                    <div class="show-thumb thumb-game">
+                        <span class="n-card-badge">N</span>
+                        <div class="show-title-overlay">
+                            <h3 class="show-name">GAME ARCADE 🎮</h3>
+                            <span class="netflix-episode-badge">TANGKAP HATI</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 4. Galeri Foto -->
+                <a href="galeri.html" class="netflix-show-card">
+                    <div class="show-thumb thumb-gallery">
+                        <span class="n-card-badge">N</span>
+                        <div class="show-title-overlay">
+                            <h3 class="show-name">GALERI FOTO 📸</h3>
+                            <span class="netflix-episode-badge">16 EPISODES</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 5. Wordle -->
+                <a href="wordle.html" class="netflix-show-card">
+                    <div class="show-thumb thumb-wordle">
+                        <span class="n-card-badge">N</span>
+                        <div class="show-title-overlay">
+                            <h3 class="show-name">WORDLE 🔠</h3>
+                            <span class="netflix-episode-badge">TEBAK KATA</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 6. Pesan Video -->
+                <a href="video.html" class="netflix-show-card">
+                    <div class="show-thumb thumb-video">
+                        <span class="n-card-badge">N</span>
+                        <div class="show-title-overlay">
+                            <h3 class="show-name">PESAN VIDEO 🎬</h3>
+                            <span class="netflix-episode-badge">4K CINEMATIC</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 7. Surat Ucapan -->
+                <a href="surat.html" class="netflix-show-card">
+                    <div class="show-thumb thumb-letter">
+                        <span class="n-card-badge">N</span>
+                        <div class="show-title-overlay">
+                            <h3 class="show-name">SURAT UCAPAN ✉️</h3>
+                            <span class="netflix-episode-badge">ORIGINAL STORY</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="netflix-footer text-center">
+        <p>PATUYFLIX Original &copy; 2026. Made with ❤️ for Patuy (7 September).</p>
+    </footer>
+
+    <script src="js/audio-player.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/surprise.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/minigame-hearts.js"></script>
+    <script src="js/minigame-puzzle.js"></script>
+    <script src="js/spa-router.js"></script>
+</body>
+</html>

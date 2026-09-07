@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- White Egg Shell Seat -->
+  <path d="M 12 65 Q 20 92 50 92 Q 80 92 88 65 Q 92 78 85 88 Q 70 98 50 98 Q 30 98 15 88 Q 8 78 12 65 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <!-- Lazy Yellow Egg Yolk Body -->
+  <ellipse cx="50" cy="58" rx="35" ry="25" fill="#f59e0b"/>
+  <!-- Lazy Eyes (horizontal slits) -->
+  <path d="M 34 56 L 44 56" stroke="#451a03" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 56 56 L 66 56" stroke="#451a03" stroke-width="3" stroke-linecap="round"/>
+  <!-- Open Lazy Mouth -->
+  <ellipse cx="50" cy="64" rx="4" ry="5" fill="#78350f"/>
+  <!-- Cute Shiny Highlight -->
+  <ellipse cx="32" cy="46" rx="8" ry="4" fill="#ffffff" opacity="0.4" transform="rotate(-20 32 46)"/>
+</svg>

@@ -1,0 +1,9 @@
+implementation_plan.md*
+walkthrough.md*
+task.md*
+bug_report.md*
+scratch/
+backup_checkpoint/
+*.metadata.json
+media_*
+assets/video/birthday-video.mp4

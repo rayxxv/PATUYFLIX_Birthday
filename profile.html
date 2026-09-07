@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATUYFLIX — Profil Patuy 💕</title>
+    <meta name="description" content="Profil resmi Patuy (Patar) di PATUYFLIX - Karakter utama perayaan ulang tahun ke-28.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .profile-hero-card {
+            background: rgba(18, 18, 24, 0.95);
+            border: 1px solid rgba(229, 9, 20, 0.35);
+            border-radius: 24px;
+            padding: 40px 32px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 9, 20, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-avatar-large {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #e50914;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+            flex-shrink: 0;
+        }
+
+        .bio-stat-chip {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 12px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .bio-stat-val {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ff8da1;
+        }
+
+        .bio-stat-lbl {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .fact-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .fact-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .fact-title {
+            font-weight: 800;
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .fact-desc {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.5;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="netflix-theme">
+    <!-- Starry Background Canvas -->
+    <canvas id="starry-canvas"></canvas>
+
+    <!-- Netflix Top Navigation Header -->
+    <header class="netflix-header" id="netflix-header">
+        <div class="header-left">
+            <a href="index.html" class="netflix-logo">PATUYFLIX</a>
+        </div>
+        <div class="header-right">
+            <span class="nav-icon" title="Cari Cinta">🔍</span>
+            <span class="nav-icon" title="Notifikasi Ulang Tahun">🔔</span>
+            <a href="profile.html" class="profile-badge" style="text-decoration: none; border: 1px solid rgba(229, 9, 20, 0.8);">
+                <span class="profile-avatar">💕</span>
+                <span class="profile-name">Patuy</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-container netflix-gallery-page" style="max-width: 960px; margin: 0 auto; padding: 100px 20px 60px 20px;">
+        
+        <!-- Header Title Section -->
+        <section class="netflix-gallery-header text-center" style="text-align: center; margin-bottom: 32px;">
+            <div class="netflix-brand-badge-pill" style="margin: 0 auto 14px auto;">
+                <span class="n-pill-dot"></span>
+                <span class="n-pill-text">PATUYFLIX CHARACTER DOSSIER • THE MAIN CHARACTER</span>
+            </div>
+            <h1 class="netflix-gallery-title" style="font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 10px;">Siapa Itu Patuy? (Patar) 🌸</h1>
+            <p class="netflix-gallery-subtitle" style="margin: 0 auto; color: rgba(255, 255, 255, 0.75); font-size: 1.05rem;">
+                Mengenal lebih dekat sosok cantik, manis, gemas, dan paling berharga di hidup Ojen yang merayakan ulang tahun ke-28.
+            </p>
+        </section>
+
+        <!-- Profile Card -->
+        <section style="width: 100%;">
+            <div class="profile-hero-card">
+                
+                <!-- Accent Backdrop Glow -->
+                <div style="position: absolute; top: -40px; right: -40px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(229,9,20,0.25) 0%, transparent 70%); pointer-events: none; filter: blur(40px);"></div>
+
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center;">
+                    <img src="assets/images/IMG-20250321-WA0003.jpg" alt="Patuy" class="profile-avatar-large">
+                    
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                            <span style="background: #e50914; color: #fff; padding: 3px 10px; border-radius: 6px; font-weight: 900; font-size: 0.8rem;">THE STAR</span>
+                            <span style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 3px 10px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">100% MATCH</span>
+                            <span style="background: rgba(70, 211, 105, 0.2); color: #46d369; border: 1px solid rgba(70, 211, 105, 0.4); padding: 3px 10px; border-radius: 6px; font-weight: 800; font-size: 0.8rem;">ONLINE 💕</span>
+                        </div>
+
+                        <h2 style="font-size: 2.2rem; font-weight: 900; color: #ffffff; margin: 0; font-family: 'Righteous', 'Montserrat', sans-serif;">
+                            Putri Fadilla Nur Aini (Patar / Patawu)
+                        </h2>
+                        <p style="color: #ff8da1; font-size: 1.15rem; font-weight: 700; margin: 0;">
+                            Atau biasa disebut pacar ojen yang manis 💕
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stats Bar Grid -->
+                <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; justify-content: center;">
+                    <div class="bio-stat-chip">
+                        <span class="bio-stat-val">28 Tahun</span>
+                        <span class="bio-stat-lbl">Umur Sekarang</span>
+                    </div>
+                    <div class="bio-stat-chip">
+                        <span class="bio-stat-val">7 September</span>
+                        <span class="bio-stat-lbl">Hari Spesial</span>
+                    </div>
+                    <div class="bio-stat-chip">
+                        <span class="bio-stat-val">Pacar Ojen 💕</span>
+                        <span class="bio-stat-lbl">Jabatan</span>
+                    </div>
+                    <div class="bio-stat-chip">
+                        <span class="bio-stat-val">Paling Juara</span>
+                        <span class="bio-stat-lbl">Rating Ojen</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="text-center" style="margin-top: 45px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+            <a href="index.html" class="n-btn n-btn-primary pulse-hero-btn" style="border-radius: 30px; padding: 14px 32px; font-weight: 800; text-decoration: none;">
+                🏠 Beranda Utama
+            </a>
+            <a href="surat.html" class="n-btn n-btn-secondary" style="border-radius: 30px; padding: 14px 26px; font-weight: 700; text-decoration: none; color: #fff;">
+                ✉️ Baca Surat Ucapan
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="netflix-footer text-center">
+        <p>PATUYFLIX Original &copy; 2026. Made with ❤️ for Patuy (7 September).</p>
+    </footer>
+
+    <script src="js/audio-player.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/spa-router.js"></script>
+</body>
+</html>
