@@ -64,7 +64,7 @@ function initHeartsGame() {
 
         if (rand < 0.18) {
             // 18% Chance for Bomb (Must Avoid)
-            item = { emoji: '💣', val: -125, isBad: true, speed: 3.2, size: 26 };
+            item = { emoji: '💣', val: -750, isBad: true, speed: 3.2, size: 26 };
         } else if (rand < 0.50) {
             // 32% Pink Heart (+15)
             item = { emoji: '💖', val: 15, isBad: false, speed: 2.8, size: 24 };
