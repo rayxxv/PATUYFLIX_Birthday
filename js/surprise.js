@@ -33,8 +33,10 @@ window.initSurpriseSequence = function() {
         startBtn.parentNode.replaceChild(newStartBtn, startBtn);
 
         newStartBtn.addEventListener('click', () => {
+            // Trigger audio play synchronously inside click event to satisfy browser user-gesture policy
             if (window.GlobalMusic) {
-                window.GlobalMusic.loadTrack(4, true);
+                window.GlobalMusic.loadTrack(4, false);
+                window.GlobalMusic.play();
             }
 
             musicStage.classList.add('stage-hidden');
@@ -1109,6 +1111,11 @@ function initPasscodeStage() {
         const validPins = ['0709', '2807', '0728'];
 
         if (validPins.includes(enteredPin)) {
+            // Guarantee audio play on PIN unlock gesture
+            if (window.GlobalMusic && window.GlobalMusic.audio && window.GlobalMusic.audio.paused) {
+                window.GlobalMusic.play();
+            }
+
             // Success Unlock
             if (feedback) {
                 feedback.textContent = '✅ PIN BENAR! MEMBUKA PREMIERE SPESIAL PATUY...';
