@@ -82,5 +82,17 @@
     <script src="js/main.js"></script>
     <script src="js/playlist.js"></script>
     <script src="js/spa-router.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('birthday-video');
+            if (video) {
+                video.addEventListener('play', () => {
+                    if (window.GlobalMusic && window.GlobalMusic.isPlaying) {
+                        window.GlobalMusic.pause();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

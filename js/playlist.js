@@ -100,8 +100,18 @@ function initPlaylistPlayer() {
         });
     }
 
+    // Clear existing sync timer if re-initialized
+    if (window._playlistSyncTimer) {
+        clearInterval(window._playlistSyncTimer);
+    }
+
     // Sync on audio events
     if (window.GlobalMusic && window.GlobalMusic.audio) {
+        window.GlobalMusic.audio.removeEventListener('timeupdate', syncUI);
+        window.GlobalMusic.audio.removeEventListener('play', syncUI);
+        window.GlobalMusic.audio.removeEventListener('pause', syncUI);
+        window.GlobalMusic.audio.removeEventListener('loadedmetadata', syncUI);
+
         window.GlobalMusic.audio.addEventListener('timeupdate', syncUI);
         window.GlobalMusic.audio.addEventListener('play', syncUI);
         window.GlobalMusic.audio.addEventListener('pause', syncUI);
@@ -110,5 +120,5 @@ function initPlaylistPlayer() {
 
     // Initial sync
     syncUI();
-    setInterval(syncUI, 500);
+    window._playlistSyncTimer = setInterval(syncUI, 500);
 }

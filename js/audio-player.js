@@ -216,59 +216,68 @@ class GlobalMusicPlayer {
 
     renderFloatingWidget() {
         // Create stylish floating music bar dock (skip on surprise page)
-        const isSurprisePage = window.location.pathname.includes('surprise') || (document.body && document.body.classList.contains('faahim-body'));
+        const isSurprisePage = window.location.pathname.includes('surprise') || 
+                               window.location.hash.includes('surprise') || 
+                               (document.body && document.body.classList.contains('faahim-body'));
         if (isSurprisePage) return;
         if (document.getElementById('global-music-dock')) return;
 
-        const dock = document.createElement('div');
-        dock.id = 'global-music-dock';
-        dock.className = 'global-music-dock';
-        dock.innerHTML = `
-            <div class="music-dock-pill" id="music-dock-pill">
-                <div class="music-dock-icon">
-                    <span class="music-note-symbol">🎵</span>
-                    <div class="sound-bars" id="sound-bars">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
+        const mount = () => {
+            if (!document.body || document.getElementById('global-music-dock')) return;
+            const dock = document.createElement('div');
+            dock.id = 'global-music-dock';
+            dock.className = 'global-music-dock';
+            dock.innerHTML = `
+                <div class="music-dock-pill" id="music-dock-pill">
+                    <div class="music-dock-icon">
+                        <span class="music-note-symbol">🎵</span>
+                        <div class="sound-bars" id="sound-bars">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+                    <div class="music-dock-info">
+                        <span class="dock-title" id="dock-title">Teenage Blue</span>
+                        <span class="dock-artist" id="dock-artist">Eve (Ao no Hako ED)</span>
+                    </div>
+                    <div class="music-dock-controls">
+                        <button class="dock-btn" id="dock-play-btn" title="Play / Pause">
+                            <span id="dock-play-icon">▶</span>
+                        </button>
+                        <button class="dock-btn" id="dock-next-btn" title="Lagu Selanjutnya">
+                            ⏭
+                        </button>
                     </div>
                 </div>
-                <div class="music-dock-info">
-                    <span class="dock-title" id="dock-title">Teenage Blue</span>
-                    <span class="dock-artist" id="dock-artist">Eve (Ao no Hako ED)</span>
-                </div>
-                <div class="music-dock-controls">
-                    <button class="dock-btn" id="dock-play-btn" title="Play / Pause">
-                        <span id="dock-play-icon">▶</span>
-                    </button>
-                    <button class="dock-btn" id="dock-next-btn" title="Lagu Selanjutnya">
-                        ⏭
-                    </button>
-                </div>
-            </div>
-        `;
+            `;
+            document.body.appendChild(dock);
 
-        document.body.appendChild(dock);
+            const playBtn = document.getElementById('dock-play-btn');
+            const nextBtn = document.getElementById('dock-next-btn');
 
-        // Attach listeners to dock buttons
-        const playBtn = document.getElementById('dock-play-btn');
-        const nextBtn = document.getElementById('dock-next-btn');
+            if (playBtn) {
+                playBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.togglePlay();
+                });
+            }
 
-        if (playBtn) {
-            playBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.togglePlay();
-            });
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.nextTrack();
+                });
+            }
+
+            this.updateFloatingUI();
+        };
+
+        if (document.body) {
+            mount();
+        } else {
+            document.addEventListener('DOMContentLoaded', mount);
         }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.nextTrack();
-            });
-        }
-
-        this.updateFloatingUI();
     }
 
     updateFloatingUI() {
