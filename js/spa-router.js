@@ -166,6 +166,7 @@
         } else if (pageName === 'surprise.html') {
             if (typeof initSurpriseSequence === 'function') initSurpriseSequence();
         } else if (pageName === 'galeri.html') {
+            if (typeof renderPolaroids === 'function') renderPolaroids();
             if (typeof initLightbox === 'function') initLightbox();
         } else if (pageName === 'surat.html') {
             const btn = document.getElementById('confetti-btn');
@@ -181,7 +182,17 @@
         } else if (pageName === 'game.html') {
             if (typeof initHeartsGame === 'function') initHeartsGame();
         } else if (pageName === 'wordle.html') {
-            if (typeof initWordleGame === 'function') initWordleGame();
+            if (typeof initWordleGame === 'function') {
+                initWordleGame();
+            } else {
+                // Dynamically load minigame-wordle.js if not yet in DOM
+                const script = document.createElement('script');
+                script.src = 'js/minigame-wordle.js';
+                script.onload = () => {
+                    if (typeof initWordleGame === 'function') initWordleGame();
+                };
+                document.body.appendChild(script);
+            }
         } else if (pageName === 'video.html') {
             const video = document.getElementById('birthday-video');
             if (video) {

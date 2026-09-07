@@ -58,12 +58,18 @@ function initPlaylistPlayer() {
     }
 
     if (playBtn) {
-        playBtn.addEventListener('click', () => {
+        playBtn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             if (window.GlobalMusic) {
-                window.GlobalMusic.togglePlay();
+                if (window.GlobalMusic.audio.paused) {
+                    window.GlobalMusic.play();
+                } else {
+                    window.GlobalMusic.pause();
+                }
                 syncUI();
             }
-        });
+        };
     }
 
     if (prevBtn) {

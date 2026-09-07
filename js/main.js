@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initNetflixHeaderScroll();
     initLightbox();
+    if (typeof renderPolaroids === 'function') renderPolaroids();
 });
 
 /* 1. Canvas Starry Background Generator */
