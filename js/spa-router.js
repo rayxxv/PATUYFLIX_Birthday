@@ -268,7 +268,8 @@
             const transCloseBtn = document.getElementById('trans-close-btn');
             document.getElementById('trans-btn-label').innerText = `PUTAR ${targetData.title.toUpperCase()} SEKARANG`;
 
-            // Show Overlay & Card
+            // Show Overlay & Card with explicit pointer events
+            overlay.style.pointerEvents = 'auto';
             overlay.style.visibility = 'visible';
             overlay.style.opacity = '1';
             if (card) card.style.transform = 'scale(1)';
@@ -278,25 +279,28 @@
 
             // Wait for user to explicitly click the red button OR cancel via X button
             const userAction = await new Promise((resolve) => {
-                const handlePlay = () => {
+                const handlePlay = (e) => {
+                    if (e) { e.preventDefault(); e.stopPropagation(); }
                     cleanup();
                     document.getElementById('trans-btn-label').innerText = `MEMUAT...`;
                     resolve('play');
                 };
-                const handleClose = () => {
+                const handleClose = (e) => {
+                    if (e) { e.preventDefault(); e.stopPropagation(); }
                     cleanup();
                     resolve('cancel');
                 };
                 function cleanup() {
-                    transPlayBtn.removeEventListener('click', handlePlay);
-                    if (transCloseBtn) transCloseBtn.removeEventListener('click', handleClose);
+                    transPlayBtn.onclick = null;
+                    if (transCloseBtn) transCloseBtn.onclick = null;
                 }
-                transPlayBtn.addEventListener('click', handlePlay);
-                if (transCloseBtn) transCloseBtn.addEventListener('click', handleClose);
+                transPlayBtn.onclick = handlePlay;
+                if (transCloseBtn) transCloseBtn.onclick = handleClose;
             });
 
             if (userAction === 'cancel') {
                 overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
                 if (card) card.style.transform = 'scale(0.92)';
                 setTimeout(() => {
                     overlay.style.visibility = 'hidden';
