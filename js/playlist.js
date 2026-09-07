@@ -100,6 +100,18 @@ function initPlaylistPlayer() {
         });
     }
 
+    // Attach explicit click listener to track buttons for instant playback
+    document.querySelectorAll('[data-track-index]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const idx = parseInt(btn.getAttribute('data-track-index'), 10);
+            if (!isNaN(idx) && window.GlobalMusic) {
+                window.GlobalMusic.loadTrack(idx, false);
+                window.GlobalMusic.play();
+                syncUI();
+            }
+        });
+    });
+
     // Clear existing sync timer if re-initialized
     if (window._playlistSyncTimer) {
         clearInterval(window._playlistSyncTimer);
