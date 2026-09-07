@@ -141,6 +141,17 @@
     function reinitPage(pageName) {
         window.scrollTo(0, 0);
 
+        // Hide Netflix Video Player HUD and Backdrop if navigating away from surprise.html
+        if (pageName !== 'surprise.html') {
+            const backdrop = document.getElementById('netflix-player-backdrop');
+            const topHud = document.getElementById('netflix-player-top-hud');
+            const bottomHud = document.getElementById('netflix-player-bottom-hud');
+            if (backdrop) backdrop.classList.remove('player-hud-visible');
+            if (topHud) topHud.classList.remove('player-hud-visible');
+            if (bottomHud) bottomHud.classList.remove('player-hud-visible');
+            document.body.classList.remove('ayush-dark-mode', 'ayush-room-lit', 'faahim-body', 'faahim-white-theme');
+        }
+
         document.querySelectorAll('.netflix-nav-links a').forEach(a => {
             const href = a.getAttribute('href');
             if (href === pageName || (pageName === 'index.html' && href === 'index.html') || (pageName === '' && href === 'index.html')) {

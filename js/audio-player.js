@@ -8,42 +8,42 @@ const GLOBAL_PLAYLIST = [
         title: 'Teenage Blue (ティーンエイジブルー)', 
         artist: 'Eve (Ao no Hako / Blue Box ED)', 
         icon: '💙', 
-        file: '/assets/audio/teenage-blue-eve.mp3',
+        file: 'assets/audio/teenage-blue-eve.mp3',
         duration: 226 
     },
     { 
         title: 'Antanante. (あんたなんて。)', 
         artist: 'Eve / WurtS', 
         icon: '✨', 
-        file: '/assets/audio/antanante.mp3',
+        file: 'assets/audio/antanante.mp3',
         duration: 242 
     },
     { 
         title: 'Kamu', 
         artist: 'Napking', 
         icon: '💖', 
-        file: '/assets/audio/napking-kamu.mp3',
+        file: 'assets/audio/napking-kamu.mp3',
         duration: 234 
     },
     { 
         title: 'Olivia Dean Medley (Cover)', 
         artist: 'Mild Nawin', 
         icon: '🎶', 
-        file: '/assets/audio/olivia-dean-medley.mp3',
+        file: 'assets/audio/olivia-dean-medley.mp3',
         duration: 348 
     },
     { 
         title: '∞ (Uma Musume Cinderella Gray ED Theme)', 
         artist: 'Piano Cover by Kyle Xian', 
         icon: '🎹', 
-        file: '/assets/audio/uma-musume-piano.mp3',
+        file: 'assets/audio/uma-musume-piano.mp3',
         duration: 137 
     },
     { 
         title: 'Partner (パートナー)', 
         artist: 'Yuka (有華)', 
         icon: '💑', 
-        file: '/assets/audio/partner-yuka.mp3',
+        file: 'assets/audio/partner-yuka.mp3',
         duration: 178 
     }
 ];
