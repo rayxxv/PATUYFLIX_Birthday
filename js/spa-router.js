@@ -207,13 +207,14 @@
         } else if (pageName === 'musik.html') {
             if (typeof initPlaylistPlayer === 'function') initPlaylistPlayer();
         } else if (pageName === 'game.html') {
-            if (typeof initHeartsGame === 'function') {
-                initHeartsGame();
+            if (typeof initHeartsGame === 'function') initHeartsGame();
+            if (typeof initFlappyGame === 'function') {
+                initFlappyGame();
             } else {
                 const script = document.createElement('script');
-                script.src = 'js/minigame-hearts.js';
+                script.src = 'js/minigame-flappy.js';
                 script.onload = () => {
-                    if (typeof initHeartsGame === 'function') initHeartsGame();
+                    if (typeof initFlappyGame === 'function') initFlappyGame();
                 };
                 document.body.appendChild(script);
             }
