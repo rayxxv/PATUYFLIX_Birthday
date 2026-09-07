@@ -239,9 +239,13 @@
         try {
             const pageName = getPageName(url);
 
+            // If current page is surprise.html, navigate directly so we completely reset all animation/theme states
+            if (window.location.pathname.includes('surprise.html') || document.body.classList.contains('faahim-body') || document.body.classList.contains('ayush-room-lit')) {
+                window.location.href = url;
+                return;
+            }
+
             // For returning to Home / Beranda or Profile, use clean browser navigation
-            // This guarantees 100% clean DOM, resets header layout, clears memory/intervals,
-            // and lets the persistent audio player continue uninterrupted via localStorage.
             if (pageName === 'index.html' || pageName === '' || pageName === 'profile.html') {
                 window.location.href = url;
                 return;
@@ -312,6 +316,13 @@
                 currentMain.className = newMain.className;
                 document.title = doc.title;
 
+                // Sync body className from fetched page (e.g. netflix-theme)
+                if (doc.body && doc.body.className) {
+                    document.body.className = doc.body.className;
+                } else {
+                    document.body.className = 'netflix-theme';
+                }
+
                 reinitPage(pageName);
 
                 if (push) {
@@ -323,6 +334,7 @@
 
             // Hide Overlay
             overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
             if (card) card.style.transform = 'scale(0.92)';
             setTimeout(() => {
                 overlay.style.visibility = 'hidden';
