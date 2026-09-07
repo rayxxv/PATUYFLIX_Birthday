@@ -114,44 +114,50 @@ class GlobalMusicPlayer {
             }
         });
 
-        const isSurprisePage = window.location.pathname.includes('surprise') || (document.body && document.body.classList.contains('faahim-body'));
+        const checkIsSurprisePage = () => {
+            return window.location.pathname.includes('surprise') || 
+                   window.location.hash.includes('surprise') || 
+                   (document.body && document.body.classList.contains('faahim-body'));
+        };
+
+        const isSurprisePage = checkIsSurprisePage();
 
         // Mount floating widget UI (disabled on surprise page for cinema immersion)
         if (!isSurprisePage) {
             this.renderFloatingWidget();
         }
 
-        // Attempt resume if previously playing (disabled on surprise page until user starts premiere)
+        // Attempt resume if previously playing
         if (savedState === 'true' && !isSurprisePage) {
             this.tryResume();
         }
 
-        // Global unlock on first user click anywhere (disabled on surprise page)
-        if (!isSurprisePage) {
-            const unlockAudio = () => {
-                if (localStorage.getItem('patuy_music_playing') === 'true' && this.audio.paused) {
-                    this.play();
-                }
-                document.removeEventListener('click', unlockAudio);
-                document.removeEventListener('keydown', unlockAudio);
-                document.removeEventListener('touchstart', unlockAudio);
-            };
-            document.addEventListener('click', unlockAudio, { once: true });
-            document.addEventListener('keydown', unlockAudio, { once: true });
-            document.addEventListener('touchstart', unlockAudio, { once: true });
-        }
+        // Global unlock on first user click anywhere to bypass browser autoplay restrictions
+        const unlockAudio = () => {
+            if (localStorage.getItem('patuy_music_playing') === 'true' && this.audio.paused && !checkIsSurprisePage()) {
+                this.play();
+            }
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('keydown', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+        };
+        document.addEventListener('click', unlockAudio, { once: true });
+        document.addEventListener('keydown', unlockAudio, { once: true });
+        document.addEventListener('touchstart', unlockAudio, { once: true });
     }
 
     loadTrack(index, autoPlay = true) {
         this.currentTrackIndex = index;
         const track = this.playlist[this.currentTrackIndex];
-        this.audio.src = track.file;
-        localStorage.setItem('patuy_music_track', this.currentTrackIndex);
+        if (track) {
+            this.audio.src = track.file;
+            localStorage.setItem('patuy_music_track', this.currentTrackIndex);
 
-        if (autoPlay) {
-            this.play();
+            if (autoPlay) {
+                this.play();
+            }
+            this.updateFloatingUI();
         }
-        this.updateFloatingUI();
     }
 
     tryResume() {
@@ -162,7 +168,6 @@ class GlobalMusicPlayer {
                 localStorage.setItem('patuy_music_playing', 'true');
                 this.updateFloatingUI();
             }).catch(() => {
-                // Autoplay policy prevented immediate playback; waiting for first user interaction
                 console.log('Autoplay waiting for user gesture to resume music.');
             });
         }
@@ -170,12 +175,18 @@ class GlobalMusicPlayer {
 
     play() {
         localStorage.setItem('patuy_music_playing', 'true');
-        return this.audio.play().then(() => {
-            this.isPlaying = true;
-            this.updateFloatingUI();
-        }).catch(err => {
-            console.log('Audio playback waiting for interaction:', err);
-        });
+        const playPromise = this.audio.play();
+        if (playPromise !== undefined) {
+            return playPromise.then(() => {
+                this.isPlaying = true;
+                this.updateFloatingUI();
+            }).catch(err => {
+                console.log('Audio playback waiting for user interaction:', err);
+                this.isPlaying = false;
+                this.updateFloatingUI();
+            });
+        }
+        return Promise.resolve();
     }
 
     pause() {
