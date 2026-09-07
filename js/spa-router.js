@@ -196,24 +196,11 @@
         try {
             const pageName = getPageName(url);
 
-            // Skip transition overlay if returning to Home / Beranda or opening Profile
+            // For returning to Home / Beranda or Profile, use clean browser navigation
+            // This guarantees 100% clean DOM, resets header layout, clears memory/intervals,
+            // and lets the persistent audio player continue uninterrupted via localStorage.
             if (pageName === 'index.html' || pageName === '' || pageName === 'profile.html') {
-                const response = await fetch(url);
-                if (!response.ok) { window.location.href = url; return; }
-                const htmlText = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, 'text/html');
-                const currentMain = document.querySelector('main');
-                const newMain = doc.querySelector('main');
-                if (currentMain && newMain) {
-                    currentMain.innerHTML = newMain.innerHTML;
-                    currentMain.className = newMain.className;
-                    document.title = doc.title;
-                    reinitPage(pageName);
-                    if (push) history.pushState({ url }, doc.title, url);
-                } else {
-                    window.location.href = url;
-                }
+                window.location.href = url;
                 return;
             }
 
