@@ -175,13 +175,13 @@ class GlobalMusicPlayer {
 
     play() {
         localStorage.setItem('patuy_music_playing', 'true');
+        this.isPlaying = true;
+        this.updateFloatingUI();
+
         const playPromise = this.audio.play();
         if (playPromise !== undefined) {
-            return playPromise.then(() => {
-                this.isPlaying = true;
-                this.updateFloatingUI();
-            }).catch(err => {
-                console.log('Audio playback waiting for user interaction:', err);
+            return playPromise.catch(err => {
+                console.warn('Audio play blocked:', err);
                 this.isPlaying = false;
                 this.updateFloatingUI();
             });
