@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     initNavigation();
     initNetflixHeaderScroll();
+    initFullscreenToggle();
     initLightbox();
     if (typeof renderPolaroids === 'function') renderPolaroids();
 });
@@ -125,7 +126,54 @@ function initCountdown() {
     setInterval(updateTimer, 1000);
 }
 
-/* 3. Netflix Header & Navigation Interactions */
+/* 3. Netflix Header, Fullscreen & Navigation Interactions */
+function initFullscreenToggle() {
+    const fullscreenBtns = document.querySelectorAll('.fullscreen-toggle-btn, #nav-fullscreen-btn');
+    
+    function updateIcons() {
+        const isFull = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+        fullscreenBtns.forEach(btn => {
+            btn.innerHTML = isFull ? '🗗' : '⛶';
+            btn.setAttribute('title', isFull ? 'Keluar Layar Penuh' : 'Mode Layar Penuh (Cinema 4K)');
+        });
+    }
+
+    fullscreenBtns.forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                const docEl = document.documentElement;
+                if (docEl.requestFullscreen) {
+                    docEl.requestFullscreen().catch(err => console.warn('Fullscreen err:', err));
+                } else if (docEl.webkitRequestFullscreen) {
+                    docEl.webkitRequestFullscreen();
+                } else if (docEl.mozRequestFullScreen) {
+                    docEl.mozRequestFullScreen();
+                } else if (docEl.msRequestFullscreen) {
+                    docEl.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        };
+    });
+
+    document.addEventListener('fullscreenchange', updateIcons);
+    document.addEventListener('webkitfullscreenchange', updateIcons);
+    document.addEventListener('mozfullscreenchange', updateIcons);
+    document.addEventListener('MSFullscreenChange', updateIcons);
+    updateIcons();
+}
+
 function initNetflixHeaderScroll() {
     const header = document.getElementById('netflix-header');
     if (!header) return;

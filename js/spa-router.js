@@ -161,6 +161,10 @@
             }
         });
 
+        if (typeof initFullscreenToggle === 'function') {
+            initFullscreenToggle();
+        }
+
         if (pageName === 'index.html' || pageName === '') {
             if (typeof initCountdown === 'function') initCountdown();
         } else if (pageName === 'surprise.html') {
