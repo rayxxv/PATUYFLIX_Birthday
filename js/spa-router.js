@@ -169,14 +169,37 @@
             if (typeof renderPolaroids === 'function') renderPolaroids();
             if (typeof initLightbox === 'function') initLightbox();
         } else if (pageName === 'surat.html') {
+            const fireConfetti = () => {
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 90,
+                        spread: 75,
+                        origin: { y: 0.6 },
+                        colors: ['#e50914', '#ff416c', '#ffd700', '#ffffff', '#ff9a9e']
+                    });
+                }
+            };
+
+            const ensureConfettiAndFire = () => {
+                if (typeof confetti === 'function') {
+                    fireConfetti();
+                } else {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js';
+                    script.onload = () => fireConfetti();
+                    document.body.appendChild(script);
+                }
+            };
+
             const btn = document.getElementById('confetti-btn');
             if (btn) {
-                btn.onclick = () => {
-                    if (typeof confetti === 'function') {
-                        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#e50914', '#ff416c', '#ffd700', '#ffffff', '#ff9a9e'] });
-                    }
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    ensureConfettiAndFire();
                 };
             }
+            // Auto celebrate once when opening letter
+            setTimeout(ensureConfettiAndFire, 500);
         } else if (pageName === 'musik.html') {
             if (typeof initPlaylistPlayer === 'function') initPlaylistPlayer();
         } else if (pageName === 'game.html') {
