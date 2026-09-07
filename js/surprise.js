@@ -9,8 +9,7 @@
    (Refined with brisk, snappy transitions for seamless pacing)
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Ensure background music is paused while on the intro card until user clicks start
+window.initSurpriseSequence = function() {
     if (window.GlobalMusic && window.GlobalMusic.audio && !window.GlobalMusic.audio.paused) {
         window.GlobalMusic.pause();
     }
@@ -19,19 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicStage = document.getElementById('play-music-stage');
     const passcodeStage = document.getElementById('passcode-stage');
 
+    if (musicStage) {
+        musicStage.style.display = 'flex';
+        musicStage.classList.remove('stage-hidden');
+    }
+    if (passcodeStage) {
+        passcodeStage.style.display = 'none';
+        passcodeStage.classList.remove('stage-hidden');
+    }
+
     if (startBtn && musicStage) {
-        startBtn.addEventListener('click', () => {
-            // 1. Start audio playback immediately with Track 4: "∞ (Uma Musume Piano Cover)"
+        // Clone button to remove old listeners if re-initialized
+        const newStartBtn = startBtn.cloneNode(true);
+        startBtn.parentNode.replaceChild(newStartBtn, startBtn);
+
+        newStartBtn.addEventListener('click', () => {
             if (window.GlobalMusic) {
                 window.GlobalMusic.loadTrack(4, true);
             }
 
-            // 2. Animate out the play music intro card
             musicStage.classList.add('stage-hidden');
             setTimeout(() => {
                 musicStage.style.display = 'none';
                 
-                // 3. Show the secret 4-digit passcode lock stage
                 if (passcodeStage) {
                     passcodeStage.style.display = 'flex';
                     initPasscodeStage();
@@ -43,6 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         initFaahimAnimation();
     }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.initSurpriseSequence();
 });
 
 function initFaahimAnimation() {
