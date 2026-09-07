@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initFaahimAnimation() {
     const container = document.querySelector('.faahim-stage-container');
     if (!container) return;
+    container.style.visibility = 'visible';
 
     // Split chatbox and HBD text into spans for character-by-character animation
     const textBoxChars = document.querySelector('.hbd-chatbox');
