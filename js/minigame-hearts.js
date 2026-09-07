@@ -19,7 +19,7 @@ function initHeartsGame() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    const TARGET_SCORE = 300;
+    const TARGET_SCORE = 1000;
     let score = 0;
     let timeLeft = 30;
     let gameInterval = null;
@@ -214,7 +214,7 @@ function initHeartsGame() {
         if (timerEl) timerEl.innerText = timeLeft;
         if (startBtn) startBtn.innerText = '🔄 RESTART 🎮';
         if (statusMsgEl) {
-            statusMsgEl.innerHTML = '🎮 <span style="color:#ffd1dc;">Kumpulkan minimal 300 poin! Tangkap hati & hindari bom!</span>';
+            statusMsgEl.innerHTML = '🎮 <span style="color:#ffd1dc;">Kumpulkan minimal 1000 poin! Tangkap hati & hindari bom!</span>';
         }
         if (nextGameCard) {
             nextGameCard.style.display = 'none';
@@ -257,7 +257,7 @@ function initHeartsGame() {
             ctx.fillText('Galeri Foto siap dibuka!', canvas.width / 2, canvas.height / 2 + 45);
 
             if (statusMsgEl) {
-                statusMsgEl.innerHTML = `🎉 <strong style="color: #10b981;">Hebat! Skor kamu ${score} poin.</strong> Target 300 poin tercapai!`;
+                statusMsgEl.innerHTML = `🎉 <strong style="color: #10b981;">Hebat! Skor kamu ${score} poin.</strong> Target 1000 poin tercapai!`;
             }
 
             if (nextGameCard) {
@@ -265,7 +265,7 @@ function initHeartsGame() {
                 nextGameCard.style.background = 'rgba(16, 185, 129, 0.15)';
                 nextGameCard.style.borderColor = 'rgba(16, 185, 129, 0.5)';
                 if (ctaHeadline) {
-                    ctaHeadline.innerHTML = `🎉 Selamat! Target 300 Poin Berhasil Tercapai (Skor: ${score})! 👇`;
+                    ctaHeadline.innerHTML = `🎉 Selamat! Target 1000 Poin Berhasil Tercapai (Skor: ${score})! 👇`;
                 }
                 setTimeout(() => {
                     nextGameCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -295,7 +295,7 @@ function initHeartsGame() {
             ctx.fillText('Kurang sedikit lagi! Coba sekali lagi ya!', canvas.width / 2, canvas.height / 2 + 42);
 
             if (statusMsgEl) {
-                statusMsgEl.innerHTML = `⚠️ <span style="color: #fca5a5;">Skor kamu ${score} poin (Target minimal 300 poin). Klik <strong>Coba Lagi</strong> untuk lanjut!</span>`;
+                statusMsgEl.innerHTML = `⚠️ <span style="color: #fca5a5;">Skor kamu ${score} poin (Target minimal 1000 poin). Klik <strong>Coba Lagi</strong> untuk lanjut!</span>`;
             }
 
             if (startBtn) {
